@@ -17,23 +17,23 @@ class Lexicon
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="lexicons")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private User $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Word::class, mappedBy="lexicon")
      */
-    private $words;
+    private Collection $words;
 
     public function __construct()
     {
@@ -62,7 +62,7 @@ class Lexicon
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 

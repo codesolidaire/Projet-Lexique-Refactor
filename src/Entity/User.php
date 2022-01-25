@@ -17,27 +17,27 @@ class User
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    private string $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private string $password;
 
     /**
      * @ORM\OneToMany(targetEntity=Lexicon::class, mappedBy="user", orphanRemoval=true)
      */
-    private $lexicons;
+    private Collection $lexicons;
 
     public function __construct()
     {
@@ -86,7 +86,7 @@ class User
     }
 
     /**
-     * @return Collection|Lexicon[]
+     * Collection|Lexicon[]
      */
     public function getLexicons(): Collection
     {
@@ -105,12 +105,7 @@ class User
 
     public function removeLexicon(Lexicon $lexicon): self
     {
-        if ($this->lexicons->removeElement($lexicon)) {
-            // set the owning side to null (unless already changed)
-            if ($lexicon->getUser() === $this) {
-                $lexicon->setUser(null);
-            }
-        }
+        $this->lexicons->removeElement($lexicon);
 
         return $this;
     }

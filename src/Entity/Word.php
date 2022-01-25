@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\WordRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=WordRepository::class)
@@ -15,33 +18,33 @@ class Word
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $definition;
+    private ?string $definition;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $img;
+    private string $img;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private DateTimeInterface $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Lexicon::class, inversedBy="words")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $lexicon;
+    private ?Lexicon $lexicon;
 
     public function getId(): ?int
     {
@@ -86,12 +89,12 @@ class Word
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
