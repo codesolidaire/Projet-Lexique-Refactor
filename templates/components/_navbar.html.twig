@@ -13,8 +13,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('word_index') }}">Word</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('user_index') }}">User</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ path('user_index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('user_register') }}">Register</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ path('user_login') }}">Login</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>

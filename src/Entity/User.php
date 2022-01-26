@@ -3,12 +3,18 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @Constraints\UniqueEntity(
+ *     "email",
+ *      message = "The email '{{ value }}' is already used, please choose another one."
+ * )
  */
 class User
 {
@@ -21,16 +27,27 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=2,
+     *     max=255,
+     *     minMessage="Your username must be at least {{ limit }} characters long",
+     *     maxMessage="Your first name cannot be longer than {{ limit }} characters"
+     *     )
      */
     private string $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private string $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private string $password;
 
