@@ -24,10 +24,8 @@ class Word
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
-     *     min={2},
      *     max={255},
-     *     minMessage="Your username must be at least {{ limit }} characters long",
-     *     maxMessage="Your first name cannot be longer than {{ limit }} characters"
+     *     maxMessage="Your world cannot be longer than {{ limit }} characters"
      *     )
      */
     private string $name;

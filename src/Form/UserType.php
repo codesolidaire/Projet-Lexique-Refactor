@@ -21,7 +21,7 @@ class UserType extends AbstractType
                 [
                     'label' => 'Username :',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-50']
+                    'attr' => ['class' => 'form-control w-25']
                 ]
             )
             ->add(
@@ -30,7 +30,7 @@ class UserType extends AbstractType
                 [
                     'label' => 'Email :',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-50']
+                    'attr' => ['class' => 'form-control w-25']
                 ]
             )
             ->add(
@@ -39,7 +39,7 @@ class UserType extends AbstractType
                 [
                     'label' => 'Password :',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-50']
+                    'attr' => ['class' => 'form-control w-25']
                 ]
             )
         ;

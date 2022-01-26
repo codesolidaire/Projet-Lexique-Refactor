@@ -21,6 +21,10 @@ class Lexicon
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     max={255},
+     *     maxMessage="Your title cannot be longer than {{ limit }} characters"
+     *     )
      */
     private string $title;
 
