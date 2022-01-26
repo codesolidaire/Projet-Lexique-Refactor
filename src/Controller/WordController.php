@@ -7,15 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/home", name="home_")
+ * @Route("/word", name="word_")
  */
-class HomeController extends AbstractController
+class WordController extends AbstractController
 {
     /**
      * @Route("/", name="index")
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('word/index.html.twig');
     }
 }

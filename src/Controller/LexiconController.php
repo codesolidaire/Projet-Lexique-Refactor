@@ -7,15 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/home", name="home_")
+ * @Route("/lexicon", name="lexicon_")
  */
-class HomeController extends AbstractController
+class LexiconController extends AbstractController
 {
     /**
      * @Route("/", name="index")
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('lexicon/index.html.twig');
     }
 }
