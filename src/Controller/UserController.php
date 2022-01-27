@@ -43,19 +43,4 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/login", name="login")
-     */
-    public function login(Request $request): Response
-    {
-        $loginUser = new User();
-        $form = $this->createForm(UserType::class, $loginUser);
-        $form->remove("username");
-        $form->handleRequest($request);
-
-        return $this->render('user/login.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
 }
