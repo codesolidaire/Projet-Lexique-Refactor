@@ -1,26 +1,43 @@
 {% extends 'base.html.twig' %}
-{# word/index.html.twig #}
 
-{% block title %}Word{% endblock %}
-
-{% block stylesheets %}
-{{ parent() }}
-    {# Ajouter votre style si nécessaire #}
-{% endblock %}
+{% block title %}Word index{% endblock %}
 
 {% block body %}
-    <div>
-        <h2>Bienvenue dans ton lexique</h2>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Mot</th>
+            <th>Définition</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for word in words %}
-                  <ul>
-                      <li>
-                          {{ word.name }}: {{ word.definition }}, {{ word.createdAt|date("D, d M Y h:i:s O") }}
-                      </li>
-                  </ul>
+            <tr>
+                <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
+                <td>{{ word.definition }}</td>
+                <td>{{ word.createdAt|date("D, d M Y h:i:s O") }}</td>
+                <td>
+                    <a href="{{ path('word_edit', {'id': word.id}) }}">edit</a>
+                </td>
+                <td>
+                    {{ include('word/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
         {% endfor %}
-            <a href="{{ path('word_form') }}" class="btn btn-secondary">Add a new word</a>
+        </tbody>
+    </table>
 
-
-    {# #Contenu #}
-    </div>
+    <a href="{{ path('word_new') }}">Add a new word</a>
 {% endblock %}
