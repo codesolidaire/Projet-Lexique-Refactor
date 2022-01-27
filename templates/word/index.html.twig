@@ -3,7 +3,12 @@
 {% block title %}Word index{% endblock %}
 
 {% block body %}
-    <h1>Episode index</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <table class="table">
         <thead>

@@ -37,6 +37,8 @@ class WordController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($word);
             $entityManager->flush();
+            $this->addFlash('success', 'Mot ajouté avec succès');
+
 
             return $this->redirectToRoute('word_index');
         }
@@ -56,6 +58,7 @@ class WordController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+            $this->addFlash('success', 'Mot modifié avec succès');
 
             return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -82,6 +85,8 @@ class WordController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$word->getId(), $request->request->get('_token'))) {
             $entityManager->remove($word);
             $entityManager->flush();
+            $this->addFlash('success', 'Mot supprimé avec succès');
+
         }
 
         return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
