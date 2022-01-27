@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -47,6 +49,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private bool $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Lexicon::class, mappedBy="user", orphanRemoval=true)
+     */
+    private Collection $lexicons;
+
+    public function __construct()
+    {
+        $this->lexicons = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -107,7 +119,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
+    public function getLexicons(): Collection
+    {
+        return $this->lexicons;
+    }
+    public function addLexicon(Lexicon $lexicon): self
+    {
+        if (!$this->lexicons->contains($lexicon)) {
+            $this->lexicons[] = $lexicon;
+            $lexicon->setUser($this);
+        }
+        return $this;
+    }
+    public function removeLexicon(Lexicon $lexicon): void
+    {
+        $this->lexicons->removeElement($lexicon);
+    }
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
