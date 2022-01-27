@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Constraints\Date;
  */
 class Word
 {
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,7 +40,7 @@ class Word
     private string $img;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private DateTimeInterface $createdAt;
 
