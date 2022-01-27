@@ -17,22 +17,20 @@ class EmailVerifier
     private $entityManager;
 
     public function __construct(
-        VerifyEmailHelperInterface $helper, 
-        MailerInterface $mailer, 
+        VerifyEmailHelperInterface $helper,
+        MailerInterface $mailer,
         EntityManagerInterface $manager
-        )
-    {
+    ) {
         $this->verifyEmailHelper = $helper;
         $this->mailer = $mailer;
         $this->entityManager = $manager;
     }
 
     public function sendEmailConfirmation(
-        string $verifyEmailRouteName, 
-        UserInterface $user, 
+        string $verifyEmailRouteName,
+        UserInterface $user,
         TemplatedEmail $email
-        ): void
-    {
+    ): void {
         $signatureComponents = $this->verifyEmailHelper->generateSignature(
             $verifyEmailRouteName,
             $user->getId(),
