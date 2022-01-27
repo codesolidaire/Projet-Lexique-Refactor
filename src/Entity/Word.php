@@ -23,6 +23,7 @@ class Word
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Length(
      *     max={255},
      *     maxMessage="Your world cannot be longer than {{ limit }} characters"
