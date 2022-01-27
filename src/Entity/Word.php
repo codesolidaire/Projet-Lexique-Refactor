@@ -14,6 +14,10 @@ use Symfony\Component\Validator\Constraints\Date;
  */
 class Word
 {
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

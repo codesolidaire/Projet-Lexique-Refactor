@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block body %}
-    {# #Contenu #}
-    <h1>Your list of Words</h1>
+    <div>
+        <h2>Bienvenue dans ton lexique</h2>
+        {% for word in words %}
+                  <ul>
+                      <li>
+                          {{ word.name }}: {{ word.definition }}, {{ word.createdAt|date("D, d M Y h:i:s O") }}
+                      </li>
+                  </ul>
+        {% endfor %}
+            <a href="{{ path('word_form') }}" class="btn btn-secondary">Add a new word</a>
+    </div>
 {% endblock %}
