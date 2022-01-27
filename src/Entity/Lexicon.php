@@ -25,12 +25,6 @@ class Lexicon
     private string $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="lexicons")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private User $user;
-
-    /**
      * @ORM\OneToMany(targetEntity=Word::class, mappedBy="lexicon")
      */
     private Collection $words;
@@ -57,17 +51,6 @@ class Lexicon
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Word[]
