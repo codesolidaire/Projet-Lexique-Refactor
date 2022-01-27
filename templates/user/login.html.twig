@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
-{# user/login.html.twig #}
 
 {% block title %}User{% endblock %}
 
 {% block stylesheets %}
+{{ parent() }}
     {# Ajouter votre style si nécessaire #}
 {% endblock %}
 
 {% block body %}
-    {# #Contenu #}
-
     <div>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <button type="submit" class="btn btn-primary">Login</button>
         {{ form_end(form) }}
     </div>
-
 {% endblock %}

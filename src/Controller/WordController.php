@@ -27,7 +27,7 @@ class WordController extends AbstractController
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
     /**
-     * @Route("/add", name="form")
+     * @Route("/add", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -38,12 +38,58 @@ class WordController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($word);
             $entityManager->flush();
+            $this->addFlash('success', 'Mot ajouté avec succès');
+
 
             return $this->redirectToRoute('word_index');
         }
 
-        return $this->render('word/form.html.twig', [
+        return $this->render('word/new.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="edit", methods={"GET", "POST"})
+     */
+    public function edit(Request $request, Word $word, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(WordType::class, $word);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            $this->addFlash('success', 'Mot modifié avec succès');
+
+            return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('word/edit.html.twig', [
+            'word' => $word,
+            'form' => $form,
+        ]);
+    }
+    /**
+     * @Route("/{id}", name="show", methods={"GET"})
+     */
+    public function show(Word $word): Response
+    {
+        return $this->render('word/show.html.twig', [
+            'word' => $word,
+        ]);
+    }
+    /**
+     * @Route("/{id}", name="delete", methods={"POST"})
+     */
+    public function delete(Request $request, Word $word, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$word->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($word);
+            $entityManager->flush();
+            $this->addFlash('success', 'Mot supprimé avec succès');
+
+        }
+
+        return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
     }
 }
