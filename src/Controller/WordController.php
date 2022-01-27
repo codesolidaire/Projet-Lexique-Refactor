@@ -12,8 +12,6 @@ use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-
-
 /**
  * @Route("/word", name="word_")
  */
