@@ -14,7 +14,7 @@
         {% for word in words %}
                   <ul>
                       <li>
-                          {{ word.name }} : {{ word.definition }}, {{ word.createdAt|date("D, d M Y h:i:s O")}}
+                          {{ word.name }}: {{ word.definition }}, {{ word.createdAt|date("D, d M Y h:i:s O") }}
                       </li>
                   </ul>
         {% endfor %}

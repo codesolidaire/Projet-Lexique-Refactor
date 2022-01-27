@@ -14,9 +14,7 @@ class WordType extends AbstractType
         $builder
             ->add('name')
             ->add('definition')
-            ->add('img')
-            ->add('createdAt')
-        ;
+            ->add('img');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

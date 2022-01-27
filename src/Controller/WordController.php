@@ -20,16 +20,6 @@ use Symfony\Component\HttpFoundation\Request;
 class WordController extends AbstractController
 {
     /**
-     * @var WordRepository
-     */
-
-    private WordRepository $repository;
-
-    public function construct(WordRepository $repository)
-    {
-        $this ->repository = $repository;
-    }
-    /**
      * @Route("/", name="index")
      */
     public function index(WordRepository $repository): Response
@@ -38,18 +28,21 @@ class WordController extends AbstractController
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
     /**
-     * @Route("/add/", name="form")
+     * @Route("/add", name="form")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $word = new Word();
         $form = $this->createForm(WordType::class, $word);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($word);
             $entityManager->flush();
+
             return $this->redirectToRoute('word_index');
         }
+
         return $this->render('word/form.html.twig', [
             'form' => $form->createView()
         ]);
