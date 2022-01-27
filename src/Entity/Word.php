@@ -30,7 +30,7 @@ class Word
      * @Assert\NotBlank()
      * @Assert\Length(
      *     max={255},
-     *     maxMessage="Your world cannot be longer than {{ limit }} characters"
+     *     maxMessage="Your word cannot be longer than {{ limit }} characters"
      *     )
      */
     private string $name;
