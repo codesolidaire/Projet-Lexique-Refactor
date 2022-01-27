@@ -3,17 +3,20 @@
 namespace App\Entity;
 
 use App\Repository\WordRepository;
-use DateTime;
+use DateTime as dateNow;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=WordRepository::class)
  */
 class Word
 {
+    public function __construct()
+    {
+        $this->createdAt = new dateNow('now');
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -93,12 +96,12 @@ class Word
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
