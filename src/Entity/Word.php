@@ -6,6 +6,7 @@ use App\Repository\WordRepository;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Date;
 
 /**
@@ -26,6 +27,12 @@ class Word
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     min={2},
+     *     max={255},
+     *     minMessage="Your username must be at least {{ limit }} characters long",
+     *     maxMessage="Your first name cannot be longer than {{ limit }} characters"
+     *     )
      */
     private string $name;
 
