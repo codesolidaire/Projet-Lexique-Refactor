@@ -10,6 +10,13 @@
 {% block body %}
     {# #Contenu #}
 
-    <h1>Welcome to your first Lexicon!</h1>
+    <h1>Welcome to your first Lexicon !</h1>
+    <ul>
+
+    {% for lexicon in lexiconList %}
+    <li>  {{ lexicon.title }} </li>
+    {% endfor %}
+    </ul>
+
 
 {% endblock %}

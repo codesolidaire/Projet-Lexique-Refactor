@@ -11,12 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("/word", name="word_")
  */
 class WordController extends AbstractController
 {
+/*     public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    } */
     /**
      * @Route("", name="index")
      */
@@ -30,7 +35,7 @@ class WordController extends AbstractController
      * @Route("/add", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
-    {
+    { 
         $word = new Word();
         $form = $this->createForm(WordType::class, $word);
         $form->handleRequest($request);
@@ -39,7 +44,8 @@ class WordController extends AbstractController
             $entityManager->persist($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
-
+            //$session = $this->requestStack->getSession();
+            /* dd($session->get('user_id')); */
 
             return $this->redirectToRoute('word_index');
         }
