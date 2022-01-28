@@ -7,7 +7,6 @@ use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=WordRepository::class)
@@ -16,8 +15,9 @@ class Word
 {
     public function __construct()
     {
-        $this->createdAt = new \DateTime('now');
+        $this->createdAt = new DateTime('now');
     }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -27,11 +27,10 @@ class Word
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Length(
-     *     min={2},
      *     max={255},
-     *     minMessage="Your username must be at least {{ limit }} characters long",
-     *     maxMessage="Your first name cannot be longer than {{ limit }} characters"
+     *     maxMessage="Your word cannot be longer than {{ limit }} characters"
      *     )
      */
     private string $name;
@@ -98,12 +97,12 @@ class Word
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 

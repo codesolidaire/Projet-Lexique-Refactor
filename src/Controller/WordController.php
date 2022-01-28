@@ -18,11 +18,12 @@ use Symfony\Component\HttpFoundation\Request;
 class WordController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("", name="index")
      */
     public function index(WordRepository $repository): Response
     {
         $words = $repository->findAll();
+
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
     /**
@@ -82,11 +83,10 @@ class WordController extends AbstractController
      */
     public function delete(Request $request, Word $word, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$word->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $word->getId(), $request->request->get('_token'))) {
             $entityManager->remove($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot supprimé avec succès');
-
         }
 
         return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);

@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
+{# user/register.html.twig #}
 
 {% block title %}User{% endblock %}
 
 {% block stylesheets %}
-{{ parent() }}
     {# Ajouter votre style si nécessaire #}
 {% endblock %}
 
 {% block body %}
     <div>
-        {{ form_start(form) }}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
         {{ form_widget(form) }}
-        <button type="submit" class="btn btn-primary">Login</button>
-        {{ form_end(form) }}
+        <button type="submit" class="btn btn-primary">Register</button>
+    {{ form_end(form) }}
     </div>
 {% endblock %}
