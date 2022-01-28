@@ -15,6 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
+    private RequestStack $requestStack;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
     /**
      * @Route("/register", name="register")
      */
@@ -27,7 +33,7 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        //Hash du pass 
+        // Hash du pass
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -37,15 +43,16 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-        
-        //
 
             $entityManager->persist($user);
             $entityManager->flush();
 
             $lexicon = new Lexicon();
-            $lexicon->setTitle($user->getUsername());
+            $user->getUsername() ? $lexicon->setTitle($user->getUsername()) : null;
             $lexicon->setUser($user);
+            
+            $session = $this->requestStack->getSession();
+            $session->set('user_id', $user->getId());
 
             $entityManager->persist($lexicon);
             $entityManager->flush();

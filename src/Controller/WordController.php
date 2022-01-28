@@ -35,7 +35,7 @@ class WordController extends AbstractController
      * @Route("/add", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
-    { 
+    {
         $word = new Word();
         $form = $this->createForm(WordType::class, $word);
         $form->handleRequest($request);

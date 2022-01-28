@@ -13,11 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
-    private $requestStack;
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    }
     /**
      * @Route("", name="index")
      */
@@ -30,16 +25,7 @@ class UserController extends AbstractController
      * @Route("/login", name="login")
      */
     public function login(): Response
-    {      
-/*
-        // Enregister dans la session l'user id         
-        $user = new User;
-
-        $session = $this->requestStack->getSession();
-        $session->set('user_id', $user->getId())
-        
-        dd($session->set('user_id', $user->getId())); */
-
+    {
         return $this->render('user/login.html.twig');
     }
 }
