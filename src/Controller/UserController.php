@@ -12,10 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("", name="index")
      */
     public function index(): Response
     {
         return $this->render('user/index.html.twig');
+    }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function login(): Response
+    {
+        return $this->render('user/login.html.twig');
     }
 }
