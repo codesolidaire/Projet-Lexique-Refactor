@@ -18,7 +18,6 @@ class WordType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'required' => false
             ]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void
