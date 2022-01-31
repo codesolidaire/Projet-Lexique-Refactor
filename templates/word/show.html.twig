@@ -4,6 +4,7 @@
 
 {% block body %}
 
+
     <table class="table">
         <tbody>
         <tr>
@@ -13,6 +14,13 @@
         <tr>
             <th>Définition</th>
             <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
+        </tr>
+        <tr>
+            <th>Illustration</th>
+            <td>
+                {% if word.filename %}
+                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
+                {% endif %}</td>
         </tr>
         </tbody>
     </table>
