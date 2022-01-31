@@ -25,7 +25,9 @@
             <tr>
                 <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
                 <td>{{ word.definition }}</td>
-                <td>{{ word.createdAt|date("D, d M Y h:i:s O") }}</td>
+                <td>{% if word.filename %}
+                        <img src="/images/words/{{ word.filename }}" alt="card-img-top" style="width: 30%; height:auto;">
+                    {% endif %}</td>
                 <td>
                     <a href="{{ path('word_edit', {'id': word.id}) }}">edit</a>
                 </td>

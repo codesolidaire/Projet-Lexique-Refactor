@@ -1,4 +1,11 @@
 {{ form_start(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.definition) }}
+    {{ form_row(form.imageFile) }}
+
     {{ form_widget(form) }}
+
 <button class="btn">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}

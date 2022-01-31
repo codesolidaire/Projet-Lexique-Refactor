@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Word;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,10 @@ class WordType extends AbstractType
         $builder
             ->add('name')
             ->add('definition')
-            ->add('img');
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
