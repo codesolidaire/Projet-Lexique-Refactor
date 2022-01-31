@@ -14,7 +14,7 @@
     {% endif %}
     
     <ul>
-    {% for lexicon in lexiconList %}
+    {% for lexicon in app.user.lexicons %}
     <li>  {{ lexicon.title }} </li>
     {% endfor %}
     </ul>
