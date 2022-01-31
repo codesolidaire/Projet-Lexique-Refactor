@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th>Définition</th>
-            <td>{{ word.definition }}</td>
+            <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
         </tr>
         <tr>
             <th>Illustration</th>
