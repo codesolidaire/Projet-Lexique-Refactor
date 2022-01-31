@@ -2,6 +2,8 @@
 .vscode
 .DS_Store
 
+/public/images/words
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
