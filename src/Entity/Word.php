@@ -43,6 +43,10 @@ class Word
     /**
      * @var File|null
      * @Vich\UploadableField(mapping="word_image", fileNameProperty="filename")
+     * @Assert\File(
+     *     maxSize = "1M",
+     *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     * )
      */
     private $imageFile;
 
