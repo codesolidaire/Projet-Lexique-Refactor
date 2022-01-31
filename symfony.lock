@@ -32,6 +32,9 @@
     "composer/xdebug-handler": {
         "version": "1.4.6"
     },
+    "dflydev/dot-access-data": {
+        "version": "v3.0.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -151,8 +154,20 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
     },
+    "league/commonmark": {
+        "version": "2.2.1"
+    },
+    "league/config": {
+        "version": "v1.1.1"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
+    },
+    "nette/schema": {
+        "version": "v1.2.2"
+    },
+    "nette/utils": {
+        "version": "v3.2.7"
     },
     "nikic/php-parser": {
         "version": "v4.10.5"
@@ -640,6 +655,9 @@
     },
     "twig/extra-bundle": {
         "version": "v3.3.0"
+    },
+    "twig/markdown-extra": {
+        "version": "v3.3.5"
     },
     "twig/twig": {
         "version": "v3.3.0"
