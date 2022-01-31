@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("/word", name="word_")
@@ -39,7 +40,6 @@ class WordController extends AbstractController
             $entityManager->persist($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
-
 
             return $this->redirectToRoute('word_index');
         }
