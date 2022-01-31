@@ -67,9 +67,9 @@ class Word
     private ?Lexicon $lexicon;
 
     /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetimeinterface", options={"default": "CURRENT_TIMESTAMP"})
      */
-    private datetime $updated_at;
+    private dateTimeInterface $updated_at;
 
     public function __construct()
     {
