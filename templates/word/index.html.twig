@@ -24,7 +24,7 @@
         {% for word in words %}
             <tr>
                 <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
-                <td>{{ word.definition }}</td>
+                <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
                 <td>{{ word.createdAt|date("D, d M Y h:i:s O") }}</td>
                 <td>
                     <a href="{{ path('word_edit', {'id': word.id}) }}">edit</a>
