@@ -18,10 +18,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 class WordController extends AbstractController
 {
-/*     public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    } */
     /**
      * @Route("", name="index")
      */
@@ -44,8 +40,6 @@ class WordController extends AbstractController
             $entityManager->persist($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
-            //$session = $this->requestStack->getSession();
-            /* dd($session->get('user_id')); */
 
             return $this->redirectToRoute('word_index');
         }

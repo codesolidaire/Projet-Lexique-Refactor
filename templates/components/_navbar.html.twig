@@ -20,7 +20,16 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ path('register') }}">Register</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('login') }}">Login</a></li>
+{#                             <li>{{ app.user ? 
+                            "<a class='dropdown-item' href="~path('home_index')~">logout</a>"
+                             : "<a class='dropdown-item' href="~path('login')~">login</a>" }}
+                            </li> #}
+                            {% if app.user is null %}
+                            <li><a class='dropdown-item' href="{{ path('login') }}">login</a></li>
+                            {% else %}
+                            <li><a class='dropdown-item' href="/logout">logout</a></li>
+                            {% endif %}
+
                         </ul>
                     </li>
                     <li class="nav-item">

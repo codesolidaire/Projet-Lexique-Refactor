@@ -9,10 +9,11 @@
 
 {% block body %}
     {# #Contenu #}
-
-    <h1>Welcome to your first Lexicon !</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h1>List de lexicons de {{ app.user.email }} !</h1>
+    {% endif %}
+    
     <ul>
-
     {% for lexicon in lexiconList %}
     <li>  {{ lexicon.title }} </li>
     {% endfor %}

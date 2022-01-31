@@ -15,12 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
-    private RequestStack $requestStack;
-
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    }
     /**
      * @Route("/register", name="register")
      */
@@ -34,7 +28,6 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         // Hash du pass
-
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
@@ -44,20 +37,21 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // => Enregistrement de l'user dans la base de donnée
             $entityManager->persist($user);
             $entityManager->flush();
 
+            // => Sauvegarde d'un lexique par défault, avec comme titre son Username
             $lexicon = new Lexicon();
-            $user->getUsername() ? $lexicon->setTitle($user->getUsername()) : null;
-            $lexicon->setUser($user);
-            
-            $session = $this->requestStack->getSession();
-            $session->set('user_id', $user->getId());
 
+            $lexicon->setTitle("lexique");
+            $lexicon->setUser($user);
+
+            // => Enregistrement du lexique dans la BDD
             $entityManager->persist($lexicon);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('registration/register.html.twig', [
