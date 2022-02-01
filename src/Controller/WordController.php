@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Lexicon;
+use App\Entity\User;
 use App\Entity\Word;
 use App\Form\WordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,10 +26,19 @@ class WordController extends AbstractController
      */
     public function index(WordRepository $repository): Response
     {
-
         $words = $repository->findAll();
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
+
+    /**
+     * @Route("/{id}/lexicon", name="showlexicon", methods={"GET"})
+     */
+    public function lexicon(int $id, WordRepository $repository): Response
+    {
+        $words = $repository->findBy(['lexicon' => $id]);
+        return $this->render('word/index.html.twig', ['words' => $words]);
+    }
+
     /**
      * @Route("/add", name="new")
      */
