@@ -7,6 +7,7 @@ use App\Entity\Word;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
@@ -23,7 +24,9 @@ class WordType extends AbstractType
         $builder
             ->add('name')
             ->add('definition')
-            ->add('img')
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
             ->add('lexicon', EntityType::class, [
                 'class' => Lexicon::class,
                 'choice_label' => 'title',
@@ -31,8 +34,8 @@ class WordType extends AbstractType
                     return $er->createQueryBuilder('u')
                        ->where('u.user = :uid')
                        ->setParameter('uid', $this->security->getToken()->getUser());
-                }
-            ]);
+                }]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

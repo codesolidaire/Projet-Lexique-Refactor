@@ -4,20 +4,18 @@ namespace App\Entity;
 
 use App\Repository\WordRepository;
 use DateTime;
-use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=WordRepository::class)
+ *@Vich\Uploadable
  */
 class Word
 {
-    public function __construct()
-    {
-        $this->createdAt = new DateTime('now');
-    }
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,25 +34,85 @@ class Word
     private string $name;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $filename;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="word_image", fileNameProperty="filename")
+     * @Assert\File(
+     *     maxSize = "1M",
+     *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     * )
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $definition;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private string $img;
-
-    /**
      * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
-    private DateTimeInterface $createdAt;
+    private DateTime $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Lexicon::class, inversedBy="words")
      * @ORM\JoinColumn(nullable=true)
      */
     private ?Lexicon $lexicon;
+
+    /**
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     */
+    private DateTime $updatedAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTime('now');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Word
+     */
+    public function setFilename(?string $filename): Word
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Word
+     */
+    public function setImageFile(?File $imageFile): Word
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -85,24 +143,12 @@ class Word
         return $this;
     }
 
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(string $img): self
-    {
-        $this->img = $img;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?DateTimeInterface
+    public function getCreatedAt(): ?DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -117,6 +163,18 @@ class Word
     public function setLexicon(?Lexicon $lexicon): self
     {
         $this->lexicon = $lexicon;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/word", name="word_")
@@ -18,6 +19,7 @@ class WordController extends AbstractController
 {
     /**
      * @Route("", name="index")
+     * @IsGranted("ROLE_USER")
      */
     public function index(WordRepository $repository): Response
     {
