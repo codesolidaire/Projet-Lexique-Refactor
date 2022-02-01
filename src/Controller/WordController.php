@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Word;
 use App\Form\WordType;
-use Gitonomy\Git\Repository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,8 +24,8 @@ class WordController extends AbstractController
      */
     public function index(WordRepository $repository): Response
     {
-        $words = $repository->findAll();
 
+        $words = $repository->findAll();
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
     /**
