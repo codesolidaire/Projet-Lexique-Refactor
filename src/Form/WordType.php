@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Lexicon;
 use App\Entity\Word;
-
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -14,9 +13,10 @@ use Symfony\Component\Security\Core\Security;
 
 class WordType extends AbstractType
 {
-    public function __construct(Security $security_context)
+    private $security;
+    public function __construct(Security $securityContext)
     {
-        $this->security = $security_context;
+        $this->security = $securityContext;
     }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -24,10 +24,10 @@ class WordType extends AbstractType
             ->add('name')
             ->add('definition')
             ->add('img')
-            ->add('lexicon', EntityType::class,[
-                'class'=>Lexicon::class,
+            ->add('lexicon', EntityType::class, [
+                'class' => Lexicon::class,
                 'choice_label' => 'title',
-                'query_builder' => function(EntityRepository $er) {
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                        ->where('u.user = :uid')
                        ->setParameter('uid', $this->security->getToken()->getUser());
