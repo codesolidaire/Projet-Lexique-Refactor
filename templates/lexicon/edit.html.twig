@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lexicon{% endblock %}
+
+{% block body %}
+    <h1>Edit Lexicon</h1>
+
+    {{ include('lexicon/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lexicon_index') }}">back to list</a>
+
+    {{ include('lexicon/_delete_form.html.twig') }}
+{% endblock %}

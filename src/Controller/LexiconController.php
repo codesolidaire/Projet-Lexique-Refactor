@@ -55,4 +55,39 @@ class LexiconController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/{title}/edit", name="edit", methods={"GET", "POST"})
+     */
+    public function edit(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(LexiconType::class, $lexicon);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            $this->addFlash('success', 'Lexicon modifié avec succès');
+
+            return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('lexicon/edit.html.twig', [
+            'lexicon' => $lexicon,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/{title}", name="delete", methods={"POST"})
+     */
+    public function delete(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $lexicon->getTitle(), $request->request->get('_token'))) {
+            $entityManager->remove($lexicon);
+            $entityManager->flush();
+            $this->addFlash('success', 'Lexicon supprimé avec succès');
+        }
+
+        return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
+    }
 }
