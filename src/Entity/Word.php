@@ -109,7 +109,7 @@ class Word
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof UploadedFile) {
-            $this->updatedAt = new \DateTime('now');
+            $this->updatedAt = new DateTime('now');
         }
         return $this;
     }
