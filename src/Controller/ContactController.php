@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
+use App\Model\Contact;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -32,12 +32,12 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $email = (new Email())
                 ->from($contact->getEmail())
+                ->to('contact@lexicon.com')
                 ->subject($contact->getTitle(), TextType::class)
                 ->text($contact->getMessage(), TextareaType::class);
 
             $mailer->send($email);
             $this->addFlash('success', 'Votre email a bien été envoyé');
-
             return $this->redirectToRoute('contact_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('contact/index.html.twig', ['form' => $form->createView()]);
