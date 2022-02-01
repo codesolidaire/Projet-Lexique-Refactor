@@ -24,7 +24,6 @@ class WordController extends AbstractController
     public function index(WordRepository $repository): Response
     {
 
-
         $words = $repository->findAll();
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
