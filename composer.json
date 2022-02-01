@@ -45,8 +45,8 @@
         "symfony/web-link": "5.3.*",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.19",
-        "twig/markdown-extra": "^3.3"
+        "twig/markdown-extra": "^3.3",
+        "vich/uploader-bundle": "^1.19"
     },
     "require-dev": {
         "friendsoftwig/twigcs": ">=4",
