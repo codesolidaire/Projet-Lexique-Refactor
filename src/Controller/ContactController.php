@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Model\Contact;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,8 +31,8 @@ class ContactController extends AbstractController
             $email = (new Email())
                 ->from($contact->getEmail())
                 ->to('contact@lexicon.com')
-                ->subject($contact->getTitle(), TextType::class)
-                ->text($contact->getMessage(), TextareaType::class);
+                ->subject($contact->getTitle())
+                ->text($contact->getMessage());
 
             $mailer->send($email);
             $this->addFlash('success', 'Votre email a bien été envoyé');
