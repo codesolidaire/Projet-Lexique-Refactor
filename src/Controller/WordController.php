@@ -4,14 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Word;
 use App\Form\WordType;
-use Gitonomy\Git\Repository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
@@ -25,8 +23,8 @@ class WordController extends AbstractController
      */
     public function index(WordRepository $repository): Response
     {
-        $words = $repository->findAll();
 
+        $words = $repository->findAll();
         return $this->render('word/index.html.twig', ['words' => $words]);
     }
     /**

@@ -35,7 +35,7 @@ class Word
 
     /**
      * @var string|null
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", nullable=true, length=255)
      */
     private $filename;
 
@@ -66,7 +66,7 @@ class Word
     private ?Lexicon $lexicon;
 
     /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime",nullable=true, options={"default": "CURRENT_TIMESTAMP"})
      */
     private DateTime $updatedAt;
 
@@ -109,7 +109,7 @@ class Word
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof UploadedFile) {
-            $this->updatedAt = new \DateTime('now');
+            $this->updatedAt = new DateTime('now');
         }
         return $this;
     }
