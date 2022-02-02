@@ -12,12 +12,9 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <h1>List de lexicons de {{ app.user.email }} !</h1>
     {% endif %}
-    
     <ul>
     {% for lexicon in app.user.lexicons %}
     <li>  {{ lexicon.title }} </li>
     {% endfor %}
     </ul>
-
-
 {% endblock %}

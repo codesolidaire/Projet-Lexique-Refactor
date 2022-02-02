@@ -20,13 +20,11 @@
 	</head>
 	<body>
 		{# {% include 'components/_navbar.html.twig' %} #}
-		{% 
-		set currentPath = app.request.attributes.get('_route')
-		%}
-		{{ currentPath !='login' ? include ('components/_navbar.html.twig') : (null) }}
+		{% set current_path = app.request.attributes.get('_route') %}
+		{{ current_path != 'login' ? include('components/_navbar.html.twig') : (null) }}
 		<div class="app">
 		    {% block body %}
-		    {% endblock %}		
+		    {% endblock %}
 		</div>
 	</body>
 </html>
