@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Lexicon;
-use App\Entity\User;
 use App\Entity\Word;
 use App\Form\WordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,7 +11,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("/word", name="word_")
@@ -87,6 +84,7 @@ class WordController extends AbstractController
      */
     public function show(Word $word): Response
     {
+
         return $this->render('word/show.html.twig', [
             'word' => $word,
         ]);

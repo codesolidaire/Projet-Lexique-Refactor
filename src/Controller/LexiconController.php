@@ -4,16 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Lexicon;
 use App\Form\LexiconType;
-use Gitonomy\Git\Repository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\LexiconRepository;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("/lexicon", name="lexicon_")

@@ -8,9 +8,8 @@
 {% endblock %}
 
 {% block body %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div class="flex-fill bg-light py-5">
-            <h2 class="title-page">LIST DE LEXIQUES</h2>
+         <div class="flex-fill bg-light py-5">
+            <h2 class="title-page">TOUS LES LEXIQUES</h2>
             <div class="container">
                 <ul class="list-lexiques">
                 {% for lexicon in app.user.lexicons %}
@@ -40,5 +39,4 @@
                 <a href="{{ path('lexicon_new') }}" class="btn btn-primary">Ajouter un lexique</a>
             </div>
         </div>
-    {% endif %}
 {% endblock %}
