@@ -16,14 +16,49 @@
 .w-40 {
   width: 40%;
 }
+.gray-500 {
+  color: var(--gray-500);
+}
+
+/* bases */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
 /* variables */
 :root {
   --lexics-color: $light;
   --light: #fef5f6;
   --dark: #052c65;
   --text: #212529;
+  --gray-500: #acb6bd;
+  --gray-400: #ced4da;
+  --gray-300: #dee2e7;
+  --gray-200: #eaecef;
+  --gray-100: #f8f9fa;
+
+  /*  classes */
 }
 
+/*  classes */
+.title-page {
+  font-size: 4.2rem;
+  line-height: 1em;
+  margin-bottom: 1em;
+  color: var(--gray-300);
+  font-weight: bold;
+  text-align: center;
+}
+.lexicon-title {
+  font-weight: bold;
+  margin: 0;
+}
 html {
   font-size: 62.5%;
 }
@@ -37,15 +72,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-/*  classes */
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
+
 .navbar {
   background: var(--dark);
   font-size: 1.6rem;
