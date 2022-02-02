@@ -35,7 +35,6 @@ class WordType extends AbstractType
                        ->where('u.user = :uid')
                        ->setParameter('uid', $this->security->getToken()->getUser());
                 }]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void
