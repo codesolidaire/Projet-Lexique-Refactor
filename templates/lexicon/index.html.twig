@@ -10,7 +10,7 @@
 {% block body %}
     {# #Contenu #}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <h1>List de lexicons de {{ app.user.email }} !</h1>
+        <h1>Tous les lexiques</h1>
     {% endif %}
     <ul>
     {% for lexicon in app.user.lexicons %}
@@ -19,5 +19,5 @@
             <a href="{{ path('lexicon_edit', {'title': lexicon.title}) }}">edit</a></li>
     {% endfor %}
     </ul>
-    <a href="{{ path('lexicon_new') }}">Add a new lexicon</a>
+    <a href="{{ path('lexicon_new') }}">Créer un nouveau lexique</a>
 {% endblock %}
