@@ -1,0 +1,41 @@
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .navbar .navbar-nav-right {
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar .nav-item {
+    border-top: none;
+    padding: 0;
+  }
+  .navbar .dropdown {
+    display: block;
+    margin-left: auto;
+  }
+  .navbar .profil {
+    display: none;
+  }
+  .navbar .logout {
+    display: none;
+  }
+  .register {
+    margin-left: auto;
+  }
+  .navbar-nav {
+    margin-top: 0;
+  }
+  .form-app {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
