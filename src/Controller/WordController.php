@@ -46,11 +46,12 @@ class WordController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $lexicon = $word->getLexicon();
             $entityManager->persist($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
 
-            return $this->redirectToRoute('word_index');
+            return $this->redirectToRoute('word_showlexicon', ['id' => $lexicon->getId()]);
         }
 
         return $this->render('word/new.html.twig', [
@@ -93,12 +94,13 @@ class WordController extends AbstractController
      */
     public function delete(Request $request, Word $word, EntityManagerInterface $entityManager): Response
     {
+        $lexicon = $word->getLexicon();
         if ($this->isCsrfTokenValid('delete' . $word->getId(), $request->request->get('_token'))) {
             $entityManager->remove($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot supprimé avec succès');
         }
 
-        return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('word_showlexicon', ['id' => $lexicon->getId()], Response::HTTP_SEE_OTHER);
     }
 }

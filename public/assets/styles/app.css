@@ -1,0 +1,112 @@
+@import "variables.css";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* utils */
+.bg-dark-app {
+  background: var(--dark);
+}
+.dark {
+  color: var(--dark);
+}
+.w-40 {
+  width: 40%;
+}
+/* variables */
+:root {
+  --lexics-color: $light;
+  --light: #fef5f6;
+  --dark: #052c65;
+  --text: #212529;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--light);
+  font-size: 1.6rem;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/*  classes */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  background: var(--dark);
+  font-size: 1.6rem;
+}
+.navbar-nav {
+  margin-top: 1.875em;
+}
+.navbar .logo {
+  color: var(--light);
+  font-size: 1.4em;
+  transition: all ease 0.2s;
+  font-weight: bold;
+  margin-right: 3rem;
+  padding: 0;
+}
+.navbar .logo:hover {
+  color: var(--light);
+  transform: scale(1.1);
+}
+.navbar .nav-item {
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-link {
+  color: var(--light) !important;
+}
+.navbar .img-profil {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 0.1rem solid var(--light);
+  border-radius: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .dropdown .dropdown-menu {
+  width: 15rem;
+}
+.navbar .dropdown {
+  display: none;
+}
+.nav-item {
+  border-top: 0.01rem solid rgba(5, 19, 46, 0.3);
+}
+.navbar .navbar-toggler-icon {
+  color: var(--light) !important;
+}
+
+/* form */
+.form-app {
+  border-radius: 1rem;
+  color: var(--light);
+  width: 100%;
+  margin: auto;
+}
+
+.form-app .form-label {
+  font-size: 0.6em;
+}
+.form-app .form-text {
+  font-size: 0.6em;
+}

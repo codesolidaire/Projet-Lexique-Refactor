@@ -3,32 +3,37 @@
 {% block title %}Hello LoginController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ lastUsername }}! ✅</h1>
-
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    <form method="post" action="{{ path('login') }}" >
-        <div class="mb-3">
-            <label class="form-label" for="username">Email:</label>
-            <input type="text" id="username" name="_username" value="{{ lastUsername }}"/>
+<div class="flex-fill bg-light my-5">
+    <div class="container">
+        <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
+        <a class="navbar-brand logo d-block text-center p-0 mb-4 fs-1 dark" href="{{ path('home_index') }}">Se connecter à <strong> Lexique </strong> </a>
+        <div class="form-app border p-5 bg-dark-app">
+            {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <form method="post" action="{{ path('login') }}" >
+                <div class="mb-3">
+                    <label class="form-label" for="username">email adresse</label>
+                    <input type="text" id="username" name="_username" class="form-control py-2" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">mot de passe</label>
+                    <input type="password" id="password" name="_password" class="form-control py-2"/>
+                    <div id="passwordHelpBlock" class="form-text">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary w-100 py-3 bg-dark-app fs-5" value="Se connecter"></input>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="_password"/>    
+        <div class="my-5 text-center d-flex justify-content-center">
+            <div class="w-40 border border-2 rounded py-3">
+                <span>New to Lexique ? </span><a href="{{ path('register') }}">Créer un compte</a>
+            </div>
         </div>
-        {# If you want to control the URL the user is redirected to on success
-        <input type="button" name="user_index" value="/user"/>
-         #}
-         
-        <button class="btn btn-primary">login</button>
-    </form>
+    </div>
 </div>
 {% endblock %}
