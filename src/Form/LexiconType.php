@@ -13,8 +13,7 @@ class LexiconType extends \Symfony\Component\Form\AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-        ;
+            ->add('title');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

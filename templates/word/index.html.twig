@@ -31,7 +31,7 @@
                         <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
                     {% endif %}</td>
                 <td>
-                    <a href="{{ path('word_edit', {'id': word.id}) }}">edit</a>
+                    <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
                 </td>
                 <td>
                     {{ include('word/_delete_form.html.twig') }}
@@ -46,6 +46,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('word_new') }}">Add a new word</a>
-    <a href="{{ path('lexicon_index') }}">back to the list</a>
+    <a href="{{ path('word_new') }}">Ajouter un nouveau mot</a>
+    <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
 {% endblock %}
