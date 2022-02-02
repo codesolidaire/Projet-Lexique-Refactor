@@ -14,7 +14,9 @@
     {% endif %}
     <ul>
     {% for lexicon in app.user.lexicons %}
-    <li>  {{ lexicon.title }} </li>
+        <li><a href="{{ path('word_showlexicon', {'id': lexicon.id}) }}">{{ lexicon.title }}</a>
+            <a href="{{ path('lexicon_edit', {'title': lexicon.title}) }}">edit</a></li>
     {% endfor %}
     </ul>
+    <a href="{{ path('lexicon_new') }}">Add a new lexicon</a>
 {% endblock %}
