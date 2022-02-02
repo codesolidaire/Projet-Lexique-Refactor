@@ -4,7 +4,7 @@
 
 {% block body %}
     {# #Contenu #}
-    <h1>Your list of Words</h1>
+    <h1>Vos mots dans le lexique {{ lexicon.title }}</h1>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">

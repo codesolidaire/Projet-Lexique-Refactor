@@ -6,6 +6,7 @@ use App\Entity\Lexicon;
 use App\Entity\User;
 use App\Entity\Word;
 use App\Form\WordType;
+use App\Repository\LexiconRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,12 +32,13 @@ class WordController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/lexicon", name="showlexicon", methods={"GET"})
+     * @Route("/lexicon/{id}", name="showlexicon", methods={"GET"})
      */
-    public function lexicon(int $id, WordRepository $repository): Response
+    public function lexicon(int $id, WordRepository $wordrepository, LexiconRepository $lexiconrepository): Response
     {
-        $words = $repository->findBy(['lexicon' => $id]);
-        return $this->render('word/index.html.twig', ['words' => $words]);
+        $words = $wordrepository->findBy(['lexicon' => $id]);
+        $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
+        return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
     /**
@@ -58,7 +60,7 @@ class WordController extends AbstractController
         }
 
         return $this->render('word/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
