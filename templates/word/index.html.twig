@@ -3,7 +3,8 @@
 {% block title %}Word index{% endblock %}
 
 {% block body %}
-    <h1>Tous les mots</h1>
+    {# #Contenu #}
+    <h1>Vos mots dans le lexique {{ lexicon.title }}</h1>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
