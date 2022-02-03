@@ -24,8 +24,8 @@ class WordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Entrer le mot'])
+             ->add('name', TextType::class, [
+                'label' => 'Entrer un nouveau mot'])
             ->add('definition', TextType::class, [
                 'label' => 'Définition'])
             ->add('imageFile', FileType::class, [
