@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class WordType extends AbstractType
 {
-    private $security;
+    private Security $security;
     public function __construct(Security $securityContext)
     {
         $this->security = $securityContext;
@@ -24,8 +24,8 @@ class WordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Entrer le mot'])
+             ->add('name', TextType::class, [
+                'label' => 'Entrer un nouveau mot'])
             ->add('definition', TextType::class, [
                 'label' => 'Définition'])
             ->add('imageFile', FileType::class, [

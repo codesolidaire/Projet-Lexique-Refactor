@@ -29,16 +29,6 @@ class WordController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/{id}", name="showlexicon", methods={"GET"})
-     */
-    public function lexicon(int $id, WordRepository $wordrepository, LexiconRepository $lexiconrepository): Response
-    {
-        $words = $wordrepository->findBy(['lexicon' => $id], ['name' => 'ASC']);
-        $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
-        return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
-    }
-
-    /**
      * @Route("/add", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
@@ -53,7 +43,7 @@ class WordController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
 
-            return $this->redirectToRoute('word_showlexicon', ['id' => $lexicon->getId()]);
+            return $this->redirectToRoute('lexicon_show_content', ['id' => $lexicon->getId()]);
         }
 
         return $this->render('word/new.html.twig', [

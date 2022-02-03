@@ -14,15 +14,51 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom'])
-            ->add('lastname', TextType::class, [
-                'label' => 'Nom'])
-            ->add('email', TextType::class)
-            ->add('title', TextType::class, [
-                'label' => 'Sujet'])
-            ->add('message', TextareaType::class, [
-                'label' => 'Message']);
+            ->add(
+                'firstname',
+                TextType::class,
+                [
+                    'label' => 'Prénom',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'lastname',
+                TextType::class,
+                [
+                    'label' => 'nom',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'email',
+                TextType::class,
+                [
+                    'label' => 'Email',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'title',
+                TextType::class,
+                [
+                    'label' => 'Sujet',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'message',
+                TextareaType::class,
+                [
+                    'label' => 'Message',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            );
     }
 
 
