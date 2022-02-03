@@ -4,26 +4,23 @@
 
 {% block body %}
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
+    <div class="container">
 
-{{ form_start(form) }}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
 
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.message) }}
+        {{ form_start(form) }}
+        <div class="mb-3">{{ form_row(form.firstname) }}</div>
+        <div class="mb-3">{{ form_row(form.lastname) }}</div>
+        <div class="mb-3">{{ form_row(form.email) }}</div>
+        <div class="mb-3">{{ form_row(form.title) }}</div>
+        <div class="mb-3">{{ form_row(form.message) }}</div>
+        <div class="mb-3">{{ form_rest(form) }}</div>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+        {{ form_end(form) }}
 
-
-    {{ form_rest(form) }}
-
-<button class="btn">{{ button_label|default('envoyer') }}</button>
-
-{{ form_end(form) }}
+    </div>
 
 {% endblock %}
 

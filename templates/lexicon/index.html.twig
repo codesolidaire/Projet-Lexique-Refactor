@@ -8,16 +8,20 @@
 {% endblock %}
 
 {% block body %}
+    {% if is_granted('IS_ANONYMOUS') %}
+        {{ "Hello anonymous" }}
+    {% endif %}
+
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div class="flex-fill bg-light py-5">
-            <h2 class="title-page">LIST DE LEXIQUES</h2>
+         <div class="flex-fill bg-light py-5">
+            <h2 class="title-page">TOUS LES LEXIQUES</h2>
             <div class="container">
                 <ul class="list-lexiques">
-                {% for lexicon in app.user.lexicons %}
+                {% for lexicon in lexicons %}
                     <li class="elem mb-3">
                         <div class="card">
                             <div class="card-header border-bottom-0 d-flex justify-content-between align-items-center ">
-                                <a class="card-title lexicon-title " href="{{ path('word_showlexicon', {'id': lexicon.id}) }}">{{ lexicon.title }}</a>
+                                <a class="card-title lexicon-title " href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a>
                                 <div class="btn-group" role="group">
                                     <button id="btnGroupDrop1" class="border-0 py-1 px-3" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-ellipsis-h gray-500"></i>
@@ -32,8 +36,7 @@
                                 <li class="list-group-item m-1 border fs-5">{{ words.name }}</li>
                             {% endfor %}
                             </ul>
-                        </div>
-                    </li>
+                        </div></li>
 
                 {% endfor %}
                 </ul>
@@ -41,4 +44,5 @@
             </div>
         </div>
     {% endif %}
+
 {% endblock %}

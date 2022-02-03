@@ -4,16 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Lexicon;
 use App\Form\LexiconType;
-use Gitonomy\Git\Repository;
+use App\Repository\WordRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\LexiconRepository;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("/lexicon", name="lexicon_")
@@ -22,19 +19,30 @@ class LexiconController extends AbstractController
 {
     /**
      * @Route("", name="index")
-     * @IsGranted("ROLE_USER")
      */
     public function index(LexiconRepository $repository): Response
     {
-        $lexicons = $repository->findAll();
+        $lexicons = $repository->findBy(['user' => $this->getUser()], ['title' => 'ASC']);
 
         return $this->render('lexicon/index.html.twig', ['lexicons' => $lexicons]);
     }
 
     /**
-     * @Route("/add", name="new")
+     * @Route("/{id}/content", name="show_content")
      */
-    public function add(Request $request, EntityManagerInterface $entityManager): Response
+    public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconrepository): Response
+    {
+        $words = $lexicon->getWords();
+        $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
+
+        return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
+    }
+
+
+    /**
+     * @Route("/new", name="new")
+     */
+    public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $lexicon = new Lexicon();
         $form = $this->createForm(LexiconType::class, $lexicon);
