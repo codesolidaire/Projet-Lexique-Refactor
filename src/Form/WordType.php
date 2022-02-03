@@ -24,21 +24,49 @@ class WordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-             ->add('name', TextType::class, [
-                'label' => 'Entrer un nouveau mot'])
-            ->add('definition', TextType::class, [
-                'label' => 'Définition'])
-            ->add('imageFile', FileType::class, [
-                'required' => false, 'label' => 'Ajouter une image'
-            ])
-            ->add('lexicon', EntityType::class, [
-                'class' => Lexicon::class,
-                'choice_label' => 'title',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('u')
-                       ->where('u.user = :uid')
-                       ->setParameter('uid', $this->security->getToken()->getUser());
-                }]);
+            ->add(
+                'name',
+                TextType::class,
+                [
+                    'label' => 'Entrer un nouveau mot',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'definition',
+                TextType::class,
+                [
+                    'label' => 'Définition',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'imageFile',
+                TextType::class,
+                [
+                    'required' => false,
+                    'label' => 'Joindre une image',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25']
+                ]
+            )
+            ->add(
+                'Lexicon',
+                EntityType::class,
+                [
+                    'class' => Lexicon::class,
+
+                    'choice_label' => 'title',
+                    'label_attr' => ['class' => 'form-label'],
+                    'attr' => ['class' => 'form-control w-25'],
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->where('u.user = :uid')
+                            ->setParameter('uid', $this->security->getToken()->getUser());
+                    }]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
