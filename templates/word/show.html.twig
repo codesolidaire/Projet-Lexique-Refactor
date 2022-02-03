@@ -25,11 +25,11 @@
                             {% endif %}</td>
                     </tr>
                     </tbody>
-                </table>            
+                </table>
                 <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
                 <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour au lexique</a>
                 {{ include('word/_delete_form.html.twig') }}
             </div>
         </div>
-    </div> 
+    </div>
 {% endblock %}
