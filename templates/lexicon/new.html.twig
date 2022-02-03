@@ -3,9 +3,11 @@
 {% block title %}New Lexicon{% endblock %}
 
 {% block body %}
-    <h1>Create new Lexicon</h1>
-
-    {{ include('lexicon/_form.html.twig') }}
-
-    <a href="{{ path('lexicon_index') }}">back to list</a>
+    <div class="flex-fill bg-light py-5">
+        <h2 class="title-page">Ajouter un nouveau Lexique</h2>
+        <div class="container">
+            {{ include('lexicon/_form.html.twig') }}
+            <a href="{{ path('lexicon_index') }}">back to list</a>
+        </div>
+    </div>
 {% endblock %}
