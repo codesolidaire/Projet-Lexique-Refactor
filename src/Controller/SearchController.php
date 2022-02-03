@@ -71,6 +71,8 @@ class SearchController extends AbstractController
 
         $tnt = new TNTSearch();
         $tnt->asYouType = true;
+        $tnt->fuzziness = true;
+        $tnt->fuzzy_prefix_length = 3;
 
         // Obtain and load the configuration that can be generated with the previous described method
         $configuration = $this->getTNTSearchConfiguration();
