@@ -11,7 +11,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use TeamTNT\TNTSearch\TNTSearch;
 
 /**
  * @Route("/word", name="word_")
@@ -45,18 +44,6 @@ class WordController extends AbstractController
 
             return $this->redirectToRoute('lexicon_show_content', ['id' => $lexicon->getId()]);
         }
-
-        $tnt = new TNTSearch();
-
-        $tnt->loadConfig($config);
-        $tnt->selectIndex("words");
-
-        $index = $tnt->getIndex();
-
-        //to insert a new document to the index
-        //$index->insert(['id' => '11', 'name' => 'new title', 'article' => 'new article']);
-        dd($word);
-        $index->insert($word);
 
         return $this->render('word/new.html.twig', [
             'form' => $form->createView(),

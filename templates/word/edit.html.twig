@@ -7,7 +7,7 @@
 
     {{ include('word/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('word_showlexicon', {'id': word.lexicon.id}) }}">Retour à la liste</a>
+    <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour à la liste</a>
 
     {{ include('word/_delete_form.html.twig') }}
 {% endblock %}

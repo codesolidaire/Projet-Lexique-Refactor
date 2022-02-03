@@ -24,7 +24,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/{id}", name="lexicon_show_content")
+     * @Route("/lexicon/show/{id}", name="lexicon_show_content")
      */
     public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconrepository): Response
     {
@@ -33,7 +33,6 @@ class LexiconController extends AbstractController
 
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
-
 
     /**
      * @Route("/lexicon/new", name="lexicon_new")
@@ -61,7 +60,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/{title}", name="lexicon_edit", methods={"GET", "POST"})
+     * @Route("/lexicon/edit/{title}", name="lexicon_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
     {

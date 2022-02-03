@@ -22,11 +22,11 @@ class SearchController extends AbstractController
 
         // Obtain and load the configuration that can be generated with the previous described method
         $configuration = $this->getTNTSearchConfiguration();
-        $this->tnt->loadConfig($configuration);
+        $tnt->loadConfig($configuration);
 
-        $this->tnt->asYouType = true;
-        $this->tnt->fuzziness = true;
-        $this->tnt->fuzzy_prefix_length = 3;
+        $tnt->asYouType = true;
+        $tnt->fuzziness = true;
+        $tnt->fuzzy_prefix_length = 3;
 
         $this->tnt = $tnt;
     }
