@@ -7,6 +7,8 @@ use App\Entity\Word;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
@@ -33,7 +35,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'definition',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Définition',
                     'label_attr' => ['class' => 'form-label'],
@@ -42,7 +44,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'imageFile',
-                TextType::class,
+                FileType::class,
                 [
                     'required' => false,
                     'label' => 'Joindre une image',
@@ -50,6 +52,7 @@ class WordType extends AbstractType
                     'attr' => ['class' => 'form-control w-25']
                 ]
             )
+
             ->add(
                 'Lexicon',
                 EntityType::class,
