@@ -17,11 +17,10 @@ class HomeController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        if (count($request->cookies) > 0 )
-        {
-            return $this->redirectToRoute('login');
+        if (count($request->cookies) > 0) {
+            return $this->redirectToRoute('login') ;
         } else {
-           return $this->redirectToRoute('lexicon_index');
+            return $this->redirectToRoute('lexicon_index');
         }
     }
 }
