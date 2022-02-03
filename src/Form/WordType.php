@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class WordType extends AbstractType
@@ -44,7 +43,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'imageFile',
-                TextType::class,
+                FileType::class,
                 [
                     'required' => false,
                     'label' => 'Joindre une image',

@@ -14,6 +14,23 @@ use App\Entity\Word;
 
 class SearchController extends AbstractController
 {
+    private TNTSearch $tnt;
+
+    public function __construct()
+    {
+        $tnt = new TNTSearch();
+
+        // Obtain and load the configuration that can be generated with the previous described method
+        $configuration = $this->getTNTSearchConfiguration();
+        $this->tnt->loadConfig($configuration);
+
+        $this->tnt->asYouType = true;
+        $this->tnt->fuzziness = true;
+        $this->tnt->fuzzy_prefix_length = 3;
+
+        $this->tnt = $tnt;
+    }
+
     private function getTNTSearchConfiguration(): array
     {
         $databaseURL = $_ENV['DATABASE_URL'];
@@ -40,14 +57,8 @@ class SearchController extends AbstractController
      */
     public function generateIndex(): Response
     {
-        $tnt = new TNTSearch();
-
-        // Obtain and load the configuration that can be generated with the previous described method
-        $configuration = $this->getTNTSearchConfiguration();
-        $tnt->loadConfig($configuration);
-
         // The index file will have the following name, feel free to change it as you want
-        $indexer = $tnt->createIndex('words');
+        $indexer = $this->tnt->createIndex('words');
 
         // The result with all the rows of the query will be the data
         // that the engine will use to search, in our case we only want one column (name)
@@ -69,23 +80,14 @@ class SearchController extends AbstractController
     {
         $docManager = $this->getDoctrine()->getManager();
 
-        $tnt = new TNTSearch();
-        $tnt->asYouType = true;
-        $tnt->fuzziness = true;
-        $tnt->fuzzy_prefix_length = 3;
-
-        // Obtain and load the configuration that can be generated with the previous described method
-        $configuration = $this->getTNTSearchConfiguration();
-        $tnt->loadConfig($configuration);
-
         // Use the generated index in the previous step
-        $tnt->selectIndex('words');
+        $this->tnt->selectIndex('words');
 
         $maxResults = 20;
 
         // Search for the terms in method GET inside $research
         $research = $request->query->get('terms');
-        $results = $tnt->search($research, $maxResults);
+        $results = $this->tnt->search($research, $maxResults);
 
         // Keep a reference to the Doctrine repository of words
         $wordsRepository = $docManager->getRepository(Word::class);

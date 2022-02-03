@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Word;
 use App\Form\WordType;
-use App\Repository\LexiconRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\WordRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use TeamTNT\TNTSearch\TNTSearch;
 
 /**
  * @Route("/word", name="word_")
@@ -29,7 +29,7 @@ class WordController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="new")
+     * @Route("/new", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -46,13 +46,25 @@ class WordController extends AbstractController
             return $this->redirectToRoute('lexicon_show_content', ['id' => $lexicon->getId()]);
         }
 
+        $tnt = new TNTSearch();
+
+        $tnt->loadConfig($config);
+        $tnt->selectIndex("words");
+
+        $index = $tnt->getIndex();
+
+        //to insert a new document to the index
+        //$index->insert(['id' => '11', 'name' => 'new title', 'article' => 'new article']);
+        dd($word);
+        $index->insert($word);
+
         return $this->render('word/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET", "POST"})
+     * @Route("/edit/{id}", name="edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Word $word, EntityManagerInterface $entityManager): Response
     {
