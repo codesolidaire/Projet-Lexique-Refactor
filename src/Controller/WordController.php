@@ -63,7 +63,7 @@ class WordController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Mot modifié avec succès');
 
-            return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('word/edit.html.twig', [
@@ -93,6 +93,6 @@ class WordController extends AbstractController
             $this->addFlash('success', 'Mot supprimé avec succès');
         }
 
-        return $this->redirectToRoute('word_showlexicon', ['id' => $lexicon->getId()], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('lexicon_show_content', ['id' => $lexicon->getId()], Response::HTTP_SEE_OTHER);
     }
 }
