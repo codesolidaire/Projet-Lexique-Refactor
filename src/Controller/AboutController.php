@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/", name="about_")
+ * @Route("/about", name="about_")
  */
 class AboutController extends AbstractController
 {
@@ -18,7 +18,4 @@ class AboutController extends AbstractController
     {
         return $this->render('about/index.html.twig');
     }
-}
-{
-
 }
