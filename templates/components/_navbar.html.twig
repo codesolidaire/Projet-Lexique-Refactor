@@ -20,7 +20,7 @@
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <li class="nav-item profil">
-                        <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('word_index') }}">
+                        <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('lexicon_index') }}">
                             <span class="img-profil me-2"><i class="fas fa-user fa-xs"></i></span>
                             <p class="m-0"> {{ app.user.username }} </p>
                         </a>
