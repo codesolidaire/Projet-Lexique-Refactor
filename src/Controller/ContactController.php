@@ -19,7 +19,6 @@ class ContactController extends AbstractController
 {
     /**
      * @Route("", name="index")
-     * @IsGranted("ROLE_USER")
      */
     public function index(Request $request, MailerInterface $mailer): Response
     {

@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class WordType extends AbstractType
 {
-    private $security;
+    private Security $security;
     public function __construct(Security $securityContext)
     {
         $this->security = $securityContext;
