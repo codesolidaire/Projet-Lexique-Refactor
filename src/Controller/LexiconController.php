@@ -22,7 +22,7 @@ class LexiconController extends AbstractController
      */
     public function index(LexiconRepository $repository): Response
     {
-        $lexicons = $repository->findAll();
+        $lexicons = $repository->findBy(['user' => $this->getUser()], ['title' => 'ASC']);
 
         return $this->render('lexicon/index.html.twig', ['lexicons' => $lexicons]);
     }
