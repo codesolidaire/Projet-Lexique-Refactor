@@ -3,11 +3,11 @@
 {% block title %}Hello LoginController!{% endblock %}
 
 {% block body %}
-<div class="flex-fill bg-light my-5">
+<div class="flex-fill bg-light py-5">
     <div class="container">
         <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
-        <a class="navbar-brand logo d-block text-center p-0 mb-4 fs-1 dark" href="{{ path('lexicon_index') }}">Se connecter à <strong> Lexique </strong> </a>
-        <div class="form-app border p-5 bg-dark-app">
+        <h2 class="title-page">Se connecter à <strong> Lexique </strong> </h2>
+        <div class="form-app border p-5 bg-dark-app light">
             {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}

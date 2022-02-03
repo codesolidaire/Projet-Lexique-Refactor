@@ -11,7 +11,10 @@
   background: var(--dark);
 }
 .dark {
-  color: var(--dark);
+  color: var(--dark) !important;
+}
+.light {
+  color: var(--light) !important;
 }
 .w-40 {
   width: 40%;
@@ -126,7 +129,6 @@ body {
 /* form */
 .form-app {
   border-radius: 1rem;
-  color: var(--light);
   width: 100%;
   margin: auto;
 }

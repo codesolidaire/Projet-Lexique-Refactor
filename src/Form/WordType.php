@@ -29,7 +29,7 @@ class WordType extends AbstractType
                 [
                     'label' => 'Entrer un nouveau mot',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
             ->add(
@@ -38,7 +38,7 @@ class WordType extends AbstractType
                 [
                     'label' => 'Définition',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
             ->add(
@@ -48,7 +48,7 @@ class WordType extends AbstractType
                     'required' => false,
                     'label' => 'Joindre une image',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
             ->add(
@@ -59,7 +59,7 @@ class WordType extends AbstractType
 
                     'choice_label' => 'title',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25'],
+                    'attr' => ['class' => 'form-control'],
                     'query_builder' => function (EntityRepository $er) {
                         return $er->createQueryBuilder('u')
                             ->where('u.user = :uid')
