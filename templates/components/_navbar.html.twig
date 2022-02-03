@@ -8,13 +8,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('lexicon_index') }}">Lexicon</a>
+                        <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="{{ path('word_index') }}">Word</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>    
+                        <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <li class="nav-item profil">
@@ -40,6 +37,8 @@
                             <li><strong class="ps-3"> {{ app.user.username }} </strong></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ path('register') }}">Profil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexicons</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class='dropdown-item' href="/logout">logout</a></li>
                         </ul>
