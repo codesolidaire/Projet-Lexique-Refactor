@@ -36,6 +36,9 @@
   .navbar .logout {
     display: none;
   }
+  .login {
+    margin-left: auto;
+  }
   .register {
     margin-left: auto;
   }

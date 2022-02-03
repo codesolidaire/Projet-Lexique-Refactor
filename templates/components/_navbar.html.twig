@@ -49,13 +49,16 @@
                         </ul>
                     </li>
                     {% else %}
-                        <li class="nav-item register">
-                            <a class="nav-link active" aria-current="page" href="{{ path('register') }}">S'inscrire</a>
-                        </li>
+                        {% if (app.request.cookies | length > 0 ) %}
                         <li class="nav-item login">
                             <a class="nav-link active" aria-current="page" href="{{ path('login') }}">Se connecter</a>
                         </li>
-                {% endif %}
+                        {% else %}
+                            <li class="nav-item register">
+                                <a class="nav-link active" aria-current="page" href="{{ path('register') }}">Créer son premier lexique</a>
+                            </li>
+                        {% endif %}  
+                    {% endif %}
                 </ul>
             </div>
         </div>

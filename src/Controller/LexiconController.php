@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Lexicon;
 use App\Form\LexiconType;
-use App\Repository\WordRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,7 +37,6 @@ class LexiconController extends AbstractController
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
-
     /**
      * @Route("/new", name="new")
      */
@@ -47,7 +45,6 @@ class LexiconController extends AbstractController
         $lexicon = new Lexicon();
         $form = $this->createForm(LexiconType::class, $lexicon);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
             $user = $this->getUser();
