@@ -63,7 +63,7 @@ class WordController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Mot modifié avec succès');
 
-            return $this->redirectToRoute('word_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('word/edit.html.twig', [
