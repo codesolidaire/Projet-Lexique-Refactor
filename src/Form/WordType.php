@@ -44,7 +44,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'imageFile',
-                TextType::class,
+                FileType::class,
                 [
                     'required' => false,
                     'label' => 'Joindre une image',

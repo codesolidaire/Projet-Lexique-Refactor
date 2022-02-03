@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('lexicon_delete', {'title': lexicon.title}) }}" onsubmit="return confirm('Are you sure you want to delete this Lexicon?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lexicon.title) }}">
-    <button class="btn btn-danger">Supprimer</button>
+    <button class="btn"><i class="fas fa-trash-alt fa-2x danger"></i></button>
 </form>

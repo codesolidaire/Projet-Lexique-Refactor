@@ -7,6 +7,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <form class="search" action="{{ path('app_search') }}" method="get">
+                        <input class="form-control me-2 py-2 flex-fill" type="search" placeholder="chercher un mot..." aria-label="Search" name="terms">
+                    </form>    
+                {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">À propos</a>
                     </li>
@@ -14,10 +19,6 @@
                         <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <form class="d-flex" action="{{ path('app_search') }}" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="terms">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                     <li class="nav-item profil">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('word_index') }}">
                             <span class="img-profil me-2"><i class="fas fa-user fa-xs"></i></span>

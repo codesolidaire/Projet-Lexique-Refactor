@@ -16,6 +16,9 @@
 .light {
   color: var(--light) !important;
 }
+.danger {
+  color: #c0392b !important;
+}
 .w-40 {
   width: 40%;
 }
@@ -88,7 +91,7 @@ body {
   font-size: 1.4em;
   transition: all ease 0.2s;
   font-weight: bold;
-  margin-right: 3rem;
+  margin-right: 2rem;
   padding: 0;
 }
 .navbar .logo:hover {
@@ -125,7 +128,9 @@ body {
 .navbar .navbar-toggler-icon {
   color: var(--light) !important;
 }
-
+.navbar .search {
+  margin-bottom: 1rem;
+}
 /* form */
 .form-app {
   border-radius: 1rem;
