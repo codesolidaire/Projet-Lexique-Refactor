@@ -25,7 +25,6 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
         // Hash du pass
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -35,7 +34,6 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
             // => Enregistrement de l'user dans la base de donnée
             $entityManager->persist($user);
             $entityManager->flush();
