@@ -1,27 +1,3 @@
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
-
-{% block body %}
-    <div class="flex-fill bg-light py-5">
-        <h2 class="title-page">Créer un compte</h2>
-        <div class="container">
-            <div class="d-flex flex-column w-50">
-                {% for flash_error in app.flashes('verify_email_error') %}
-                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-                {% endfor %}
-                {{ form_start(registrationForm) }}
-                    {{ form_row(registrationForm.username) }}    
-                    {{ form_row(registrationForm.email) }}
-                    {{ form_row(registrationForm.plainPassword) }}
-                    {{ form_row(registrationForm.agreeTerms) }}
-                {{ form_end(registrationForm) }}
-                <button class="btn btn-primary">Register</button>
-            </div>
-        </div>
-    </div>    
-{% endblock %} #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
@@ -39,10 +15,10 @@
                      label: 'Password'
                  }) }}
                  {{ form_row(registrationForm.agreeTerms) }}
-         
+
                  <button type="submit" class="btn btn-primary">Register</button>
-                 {{ form_end(registrationForm) }}    
+                 {{ form_end(registrationForm) }}   
              </div>
-        </div>     
+        </div>
     </div>
 {% endblock %}

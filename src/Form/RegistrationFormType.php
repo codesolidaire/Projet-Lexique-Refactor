@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'form-control py-2'
-                ]        
+                ]
             ])
             ->add('email', TextType::class, [
                 'label' => 'email',
