@@ -10,7 +10,7 @@
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <form class="search" action="{{ path('app_search') }}" method="get">
                         <input class="form-control me-2 py-2 flex-fill" type="search" placeholder="chercher un mot..." aria-label="Search" name="terms">
-                    </form>    
+                    </form>
                 {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">À propos</a>
