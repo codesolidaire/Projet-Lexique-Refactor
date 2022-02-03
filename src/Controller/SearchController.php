@@ -96,10 +96,7 @@ class SearchController extends AbstractController
                 // more info at: https://ourcodeworld.com/articles/read/1162/how-to-order-a-doctrine-2-query-result-by-a-specific-order-of-an-array-using-mysql-in-symfony-5
                 $word = $wordsRepository->find($id);
 
-                $rows[] = [
-                    'id' => $word->getId(),
-                    'name' => $word->getName()
-                ];
+                $rows[] = $word;
         }
 
         return $this->render('search/results.html.twig', ['rows' => $rows]);

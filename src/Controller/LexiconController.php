@@ -8,7 +8,6 @@ use App\Repository\WordRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\LexiconRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,10 +30,11 @@ class LexiconController extends AbstractController
     /**
      * @Route("/{id}/content", name="show_content")
      */
-    public function showContent(int $id, WordRepository $wordrepository, LexiconRepository $lexiconrepository): Response
+    public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconrepository): Response
     {
-        $words = $wordrepository->findBy(['lexicon' => $id]);
+        $words = $lexicon->getWords();
         $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
+
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
