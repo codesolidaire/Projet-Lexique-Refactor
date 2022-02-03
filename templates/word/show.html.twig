@@ -3,13 +3,15 @@
 {% block title %}Word{% endblock %}
 
 {% block body %}
+
 <div class="flex-fill bg-light my-5">
 <div class="container">
     <div class="card" style="width: 40rem;">
             {% if word.filename %}
                 <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 100%; height:auto;">
             {% endif %}
-            <div class="card-body">
+
+        <div class="card-body">
             <h5 class="card-title">{{ word.name }}</h5>
             <p class="card-text">{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</p>
         </div>
