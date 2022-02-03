@@ -7,12 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 // Import TNTSearch
-use TeamTNT\TNTSearch\Stemmer\ArabicStemmer;
 use TeamTNT\TNTSearch\TNTSearch;
 use TeamTNT\TNTSearch\Stemmer\FrenchStemmer;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Word;
 
 class SearchController extends AbstractController
@@ -32,8 +29,7 @@ class SearchController extends AbstractController
             // Create the fuzzy_storage directory in your project to store the index file
             'storage' => __DIR__ . '/../../fuzzy_storage/',
             // A stemmer is optional
-            //'stemmer' => FrenchStemmer::class,
-            'stemmer' => ArabicStemmer::class,
+            'stemmer' => FrenchStemmer::class,
         ];
 
         return $config;
@@ -107,6 +103,5 @@ class SearchController extends AbstractController
         }
 
         return $this->render('search/results.html.twig', ['rows' => $rows]);
-        //return new JsonResponse($rows);
     }
 }
