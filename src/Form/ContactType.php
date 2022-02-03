@@ -21,7 +21,8 @@ class ContactType extends AbstractType
                     'label' => 'Prénom',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
-                ])
+                ]
+            )
             ->add(
                 'lastname',
                 TextType::class,
@@ -29,7 +30,8 @@ class ContactType extends AbstractType
                     'label' => 'nom',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
-                ])
+                ]
+            )
             ->add(
                 'email',
                 TextType::class,
@@ -37,7 +39,8 @@ class ContactType extends AbstractType
                     'label' => 'Email',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
-                ])
+                ]
+            )
             ->add(
                 'title',
                 TextType::class,
@@ -45,7 +48,8 @@ class ContactType extends AbstractType
                     'label' => 'Sujet',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
-                ])
+                ]
+            )
             ->add(
                 'message',
                 TextareaType::class,
@@ -53,7 +57,8 @@ class ContactType extends AbstractType
                     'label' => 'Message',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
-                ]);
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
