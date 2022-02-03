@@ -30,10 +30,10 @@ class LexiconController extends AbstractController
     /**
      * @Route("/{id}/content", name="show_content")
      */
-    public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconrepository): Response
+    public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconRepository): Response
     {
         $words = $lexicon->getWords();
-        $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
+        $lexicon = $lexiconRepository->findOneBy(['id' => $id]);
 
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
