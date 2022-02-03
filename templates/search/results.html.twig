@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Word index{% endblock %}
+
+{% block body %}
+    {# #Contenu #}
+    <h1>Search results :</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Mots :</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for returned_word in rows %}
+                <tr>
+                    <td> <a href="{{ path('word_show', {'id': returned_word.id}) }}"> {{ returned_word.name }}</td>
+                </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No results found.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
+{% endblock %}

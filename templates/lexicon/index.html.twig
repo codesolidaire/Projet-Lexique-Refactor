@@ -8,6 +8,11 @@
 {% endblock %}
 
 {% block body %}
+    {% if is_granted('IS_ANONYMOUS') %}
+        {{ "Hello anonymous" }}
+    {% endif %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
          <div class="flex-fill bg-light py-5">
             <h2 class="title-page">TOUS LES LEXIQUES</h2>
             <div class="container">
@@ -16,18 +21,18 @@
                     <li class="elem mb-3">
                         <div class="card">
                             <div class="card-header border-bottom-0 d-flex justify-content-between align-items-center ">
-                                <a class="card-title lexicon-title " href="{{ path('word_showlexicon', {'id': lexicon.id}) }}">{{ lexicon.title }}</a>
+                                <a class="card-title lexicon-title " href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a>
                                 <div class="btn-group" role="group">
                                     <button id="btnGroupDrop1" class="border-0 py-1 px-3" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-ellipsis-h gray-500"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                      <li><a class="dropdown-item" href="#">Ajouter un mot</a></li>
+                                      <li><a class="dropdown-item" href="{{ path('word_new') }}">Ajouter un mot</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <ul class="list-group">
-                            {% for  words in lexicon.words %}
+                            {% for words in lexicon.words %}
                                 <li class="list-group-item m-1 border fs-5">{{ words.name }}</li>
                             {% endfor %}
                             </ul>
@@ -38,4 +43,6 @@
                 <a href="{{ path('lexicon_new') }}" class="btn btn-primary">Ajouter un lexique</a>
             </div>
         </div>
+    {% endif %}
+
 {% endblock %}
