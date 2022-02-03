@@ -35,7 +35,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'definition',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Définition',
                     'label_attr' => ['class' => 'form-label'],
@@ -44,7 +44,7 @@ class WordType extends AbstractType
             )
             ->add(
                 'imageFile',
-                TextType::class,
+                FileType::class,
                 [
                     'required' => false,
                     'label' => 'Joindre une image',
