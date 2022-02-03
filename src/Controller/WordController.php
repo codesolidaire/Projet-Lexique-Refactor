@@ -33,7 +33,7 @@ class WordController extends AbstractController
      */
     public function lexicon(int $id, WordRepository $wordrepository, LexiconRepository $lexiconrepository): Response
     {
-        $words = $wordrepository->findBy(['lexicon' => $id]);
+        $words = $wordrepository->findBy(['lexicon' => $id], ['name' => 'ASC']);
         $lexicon = $lexiconrepository->findOneBy(['id' => $id]);
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
