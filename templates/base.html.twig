@@ -21,7 +21,12 @@
 	<body>
 		{# {% include 'components/_navbar.html.twig' %} #}
 		{% set current_path = app.request.attributes.get('_route') %}
-		{{ current_path != 'login' ? include('components/_navbar.html.twig') : (null) }}
+		{# {{ (current_path != 'login') ? include('components/_navbar.html.twig') : (null) }} #}
+		{% if current_path == 'login' or current_path == 'register' %}
+		{{ '' }}
+		{% else %}
+		{{ include('components/_navbar.html.twig') }}
+		{% endif %}
 		<div class="app">
 		    {% block body %}
 		    {% endblock %}
