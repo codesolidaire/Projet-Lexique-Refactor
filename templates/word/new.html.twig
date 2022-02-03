@@ -3,8 +3,13 @@
 {% block title %}New Word{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un nouveau mot</h1>
-
-    {{ include('word/_form.html.twig') }}
-    <a href="{{ path('word_index') }}">Retour à la liste</a>
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <h2 class="title-page">Ajouter un nouveau mot</h2>
+            <div class="form-app border dark p-5">
+                {{ include('word/_form.html.twig') }}
+                <a href="{{ path('word_index') }}">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
