@@ -65,8 +65,8 @@ class WordType extends AbstractType
                         return $er->createQueryBuilder('u')
                             ->where('u.user = :uid')
                             ->setParameter('uid', $this->security->getToken()->getUser());
-                    }]);
-
+                    }]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
