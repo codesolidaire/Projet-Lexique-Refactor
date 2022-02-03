@@ -3,31 +3,33 @@
 {% block title %}Word{% endblock %}
 
 {% block body %}
-
-
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Mot</th>
-            <td>{{ word.name }}</td>
-        </tr>
-        <tr>
-            <th>Définition</th>
-            <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-        </tr>
-        <tr>
-            <th>Illustration</th>
-            <td>
-                {% if word.filename %}
-                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                {% endif %}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour au lexique</a>
-
-    <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
-
-    {{ include('word/_delete_form.html.twig') }}
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <h2 class="title-page">{{ word.name }}</h2>
+            <div class="form-app border dark p-5">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Mot</th>
+                        <td>{{ word.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Définition</th>
+                        <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
+                    </tr>
+                    <tr>
+                        <th>Illustration</th>
+                        <td>
+                            {% if word.filename %}
+                                <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
+                            {% endif %}</td>
+                    </tr>
+                    </tbody>
+                </table>            
+                <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
+                <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour au lexique</a>
+                {{ include('word/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

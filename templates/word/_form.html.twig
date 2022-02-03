@@ -1,16 +1,9 @@
-<div class="container">
     {{ form_start(form) }}
 
-    {{ form_row(form.name) }}
-    {{ form_row(form.definition) }}
-    {{ form_row(form.imageFile) }}
-
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-
-
-    <p>Vous pouvez utiliser du <a href = "https://www.markdownguide.org/cheat-sheet/">Markdown</a> dans votre définition.
-        Par exemple, écrire *entre étoiles* gardera du texte <i>en italique</i>.</p>
+        {{ form_row(form.name) }}
+        {{ form_row(form.definition) }}
+        {{ form_row(form.imageFile) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     {{ form_end(form) }}
-</div>
 

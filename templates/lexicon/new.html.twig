@@ -4,10 +4,12 @@
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
-        <h2 class="title-page">Ajouter un nouveau Lexique</h2>
         <div class="container">
-            {{ include('lexicon/_form.html.twig') }}
-            <a href="{{ path('lexicon_index') }}">back to list</a>
+            <h2 class="title-page">Ajouter un nouveau Lexique</h2>
+            <div class="form-app border dark p-5">
+                {{ include('lexicon/_form.html.twig') }}
+                <a href="{{ path('lexicon_index') }}">back to list</a>
+            </div>
         </div>
     </div>
 {% endblock %}
