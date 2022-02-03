@@ -3,24 +3,26 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-
-    <div class="container">
-
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endfor %}
-
-        {{ form_start(form) }}
-        <div class="mb-3">{{ form_row(form.firstname) }}</div>
-        <div class="mb-3">{{ form_row(form.lastname) }}</div>
-        <div class="mb-3">{{ form_row(form.email) }}</div>
-        <div class="mb-3">{{ form_row(form.title) }}</div>
-        <div class="mb-3">{{ form_row(form.message) }}</div>
-        <div class="mb-3">{{ form_rest(form) }}</div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-        {{ form_end(form) }}
-
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <h2 class="title-page">Contactez Nous !</h2>
+            <div class="form-app border dark p-5">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+                {{ form_start(form) }}
+                <div class="mb-3">{{ form_row(form.firstname) }}</div>
+                <div class="mb-3">{{ form_row(form.lastname) }}</div>
+                <div class="mb-3">{{ form_row(form.email) }}</div>
+                <div class="mb-3">{{ form_row(form.title) }}</div>
+                <div class="mb-3">{{ form_row(form.message) }}</div>
+                <div class="mb-3">{{ form_rest(form) }}</div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
+    <div class="container"></div>
 
 {% endblock %}
 

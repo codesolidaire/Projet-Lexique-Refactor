@@ -18,7 +18,7 @@ class LexiconType extends \Symfony\Component\Form\AbstractType
                 [
                     'label' => 'Créer un nouveau lexique',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             );
     }

@@ -3,54 +3,52 @@
 {% block title %}Word index{% endblock %}
 
 {% block body %}
-    {# #Contenu #}
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
     <div class="flex-fill bg-light py-5">
-    <div class="container">
-        <h1>{{ lexicon.title }}</h1>
-
-
-        <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Mot</th>
-            <th scope="col">Définition</th>
-            <th scope="col">Date</th>
-            <th scope="col">Illustration</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for word in words %}
-            <tr>
-                <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
-                <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-                <td>{{ word.createdAt|date('Y-m-d H:i:sP') }}</td>
-                <td>{% if word.filename %}
-                        <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                    {% endif %}</td>
-                <td>
-                    <div class="d-grid gap-2 d-md-block">
-                        <a href="{{ path('word_edit', {'id': word.id}) }}"> <button class="btn btn-primary" type="button">Modifier</button></a>
-                        {{ include('word/_delete_form.html.twig') }}
+        <div class="container">
+            <h2 class="title-page">{{ lexicon.title }}</h2>
+            <div class="border dark p-5">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
                     </div>
-                </td>
-            </tr>
-            {% else %}
-                <tr>
-                <td colspan="5">Aucun mot n'a été ajouté au lexiwue {{ lexicon.title }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-        <a href="{{ path('word_new') }}"><button type="button" class="btn btn-secondary">Ajouter un nouveau mot</button></a>
-        <a href="{{ path('lexicon_index') }}"><button type="button" class="btn btn-secondary">Retour à la liste</button></a>
-
+                {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mot</th>
+                            <th>Définition</th>
+                            <th>Date</th>
+                            <th>Illustration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for word in words %}
+                        <tr>
+                            <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
+                            <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
+                            <td>{{ word.createdAt|date('Y-m-d H:i:sP') }}</td>
+                            <td>{% if word.filename %}
+                                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
+                                {% endif %}</td>
+                            <td>
+                                <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
+                            </td>
+                            <td>
+                                {{ include('word/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('word_new') }}">Ajouter un nouveau mot</a>
+                <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 
