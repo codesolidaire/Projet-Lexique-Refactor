@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Word;
 use App\Form\WordType;
-use App\Repository\LexiconRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,7 +28,7 @@ class WordController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="new")
+     * @Route("/new", name="new")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -52,7 +51,7 @@ class WordController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET", "POST"})
+     * @Route("/edit/{id}", name="edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Word $word, EntityManagerInterface $entityManager): Response
     {

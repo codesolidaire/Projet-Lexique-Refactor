@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Lexicon;
 use App\Form\LexiconType;
-use App\Repository\WordRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,13 +11,10 @@ use App\Repository\LexiconRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/lexicon", name="lexicon_")
- */
 class LexiconController extends AbstractController
 {
     /**
-     * @Route("", name="index")
+     * @Route("", name="lexicon_index")
      */
     public function index(LexiconRepository $repository): Response
     {
@@ -28,7 +24,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/content", name="show_content")
+     * @Route("/lexicon/show/{id}", name="lexicon_show_content")
      */
     public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconRepository): Response
     {
@@ -38,9 +34,8 @@ class LexiconController extends AbstractController
         return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
-
     /**
-     * @Route("/new", name="new")
+     * @Route("/lexicon/new", name="lexicon_new")
      */
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -65,7 +60,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/{title}/edit", name="edit", methods={"GET", "POST"})
+     * @Route("/lexicon/edit/{title}", name="lexicon_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
     {
@@ -86,7 +81,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/{title}", name="delete", methods={"POST"})
+     * @Route("/lexicon/{title}", name="lexicon_delete", methods={"POST"})
      */
     public function delete(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
     {
