@@ -1,54 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lexique{% endblock %}
+{% block title %}Word index{% endblock %}
 
 {% block body %}
-    <a href="{{ path('word_index') }}">Retour à la liste</a>
-
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Titre</th>
-            <td>{{ lexicon.title }}</td>
-        </tr>
-        <tr>
-            <th>Définition</th>
-            <td>{% for word in words %}
-        <tr>
-            <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
-            <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-            <td>{{ word.createdAt|date('Y-m-d H:i:sP') }}</td>
-            <td>{% if word.filename %}
-                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                {% endif %}</td>
-            <td>
-                <a href="{{ path('word_edit', {'id': word.id}) }}">edit</a>
-            </td>
-            <td>
-                {{ include('word/_delete_form.html.twig') }}
-            </td>
-
-        </tr>
-        {% else %}
-        <tr>
-            <td colspan="5">Pas de mots enregistrés</td>
-        </tr>
-        {% endfor %}</td>
-        </tr>
-        <tr>
-            <th>Illustration</th>
-            <td>
-                {% if word.filename %}
-                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                {% endif %}</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-    <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
-
-    {{ include('word/_delete_form.html.twig') }}
-
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+           <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
+                </ol>
+            </nav>
+            <h2 class="title-page">{{ lexicon.title }}</h2>
+            <div class="">
+                <ul class="words">
+                {% for word in words %}
+                   <li class="word d-flex">
+                        <div>
+                            <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 50px; height:auto;">
+                        </div>
+                        <div>
+                            <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a>
+                            <p> {{ word.definition }} </p>
+                            <p> {{ word.createdAt|date('Y-m-d H:i:sP') }} </p>
+                        </div>
+                   </li>
+                {% endfor %}
+                </ul>
+                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary">Ajouter un nouveau mot</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+

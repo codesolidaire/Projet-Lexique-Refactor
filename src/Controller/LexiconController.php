@@ -31,7 +31,7 @@ class LexiconController extends AbstractController
         $words = $lexicon->getWords();
         $lexicon = $lexiconRepository->findOneBy(['id' => $id]);
 
-        return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
+        return $this->render('lexicon/show.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
     /**
@@ -42,7 +42,6 @@ class LexiconController extends AbstractController
         $lexicon = new Lexicon();
         $form = $this->createForm(LexiconType::class, $lexicon);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
             $user = $this->getUser();

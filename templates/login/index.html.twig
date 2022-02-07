@@ -14,12 +14,12 @@
             <form method="post" action="{{ path('login') }}" >
                 <div class="mb-3">
                     <label class="form-label" for="username">Email</label>
-                    <input type="text" id="username" name="_username" class="form-control py-2" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
+                    <input type="text" id="username" name="_username" class="form-control" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
                     <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email avec autrui.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" id="password" name="_password" class="form-control py-2"/>
+                    <input type="password" id="password" name="_password" class="form-control"/>
                     <div id="passwordHelpBlock" class="form-text">
                         Votre mot de passe doit faire de 8 à 20 caractères, contenir des lettres et des nombres, et ne doit contenir ni espaces, ni caractères spéciaux, ni emoji.
                     </div>
