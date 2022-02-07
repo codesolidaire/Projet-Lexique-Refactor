@@ -3,9 +3,17 @@
 {% block title %}Word index{% endblock %}
 
 {% block body %}
+
     <div class="flex-fill bg-light py-5">
         <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ lexicon.title }}</li>
+                </ol>
+            </nav>
             <h2 class="title-page">{{ lexicon.title }}</h2>
+            <a href="{{ path('lexicon_index') }}">Retour à la liste des lexiques</a>
             <div class="border dark p-5">
                 {% for message in app.flashes('Succès') %}
                     <div class="alert alert-success">
@@ -24,9 +32,9 @@
                     <tbody>
                     {% for word in words %}
                         <tr>
-                            <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
+                            <td> <a href="{{ path('word_show', {'id': word.id}) }}">{{ word.name }}</a></td>
                             <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-                            <td>{{ word.createdAt|date('Y-m-d') }}</td>
+                            <td>{{ word.createdAt|date("m/d/Y") }}</td>
                             <td>{% if word.filename %}
                                     <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
                                 {% endif %}</td>
@@ -44,8 +52,8 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}">Ajouter un nouveau mot</a>
-                <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
+                <button type="button" class="btn btn-primary"> <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}">Ajouter un nouveau mot</a></button>
+
             </div>
         </div>
     </div>

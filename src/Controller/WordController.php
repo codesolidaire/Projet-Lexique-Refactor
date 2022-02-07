@@ -81,7 +81,6 @@ class WordController extends AbstractController
      */
     public function show(Word $word): Response
     {
-
         return $this->render('word/show.html.twig', [
             'word' => $word,
         ]);
