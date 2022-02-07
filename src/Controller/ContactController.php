@@ -33,7 +33,7 @@ class ContactController extends AbstractController
                 ->text($contact->getMessage());
 
             $mailer->send($email);
-            $this->addFlash('success', 'Votre email a bien été envoyé');
+            $this->addFlash('success', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('contact/index.html.twig', ['form' => $form->createView()]);
