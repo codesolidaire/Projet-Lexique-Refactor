@@ -8,10 +8,10 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class WordType extends AbstractType
@@ -30,28 +30,29 @@ class WordType extends AbstractType
                 [
                     'label' => 'Entrer un nouveau mot',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
             ->add(
                 'definition',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Définition',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
             ->add(
                 'imageFile',
-                TextType::class,
+                FileType::class,
                 [
                     'required' => false,
                     'label' => 'Joindre une image',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25']
+                    'attr' => ['class' => 'form-control']
                 ]
             )
+
             ->add(
                 'Lexicon',
                 EntityType::class,
@@ -60,7 +61,7 @@ class WordType extends AbstractType
 
                     'choice_label' => 'title',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control w-25'],
+                    'attr' => ['class' => 'form-control'],
                     'query_builder' => function (EntityRepository $er) {
                         return $er->createQueryBuilder('u')
                             ->where('u.user = :uid')
