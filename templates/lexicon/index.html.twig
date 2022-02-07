@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block body %}
+
     {% if is_granted('IS_ANONYMOUS') %}
         {{ "Hello anonymous" }}
     {% endif %}
@@ -16,6 +17,12 @@
          <div class="flex-fill bg-light py-5">
             <h2 class="title-page">{{ 'lexicon.index.title'|trans }}</h2>
             <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    </ol>
+                </nav>
+                <h2 class="title-page">TOUS LES LEXIQUES</h2>
                 <ul class="list-lexiques">
                 {% for lexicon in lexicons %}
                     <li class="elem mb-3">
