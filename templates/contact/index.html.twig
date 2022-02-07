@@ -7,9 +7,7 @@
         <div class="container">
             <h2 class="title-page">Contactez Nous !</h2>
             <div class="form-app border dark p-5">
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">{{ message }}</div>
-                {% endfor %}
+
                 {{ form_start(form) }}
                 <div class="mb-3">{{ form_row(form.firstname) }}</div>
                 <div class="mb-3">{{ form_row(form.lastname) }}</div>
