@@ -49,7 +49,7 @@ class LexiconController extends AbstractController
             $lexicon->setUser($user);
             $entityManager->persist($lexicon);
             $entityManager->flush();
-            $this->addFlash('success', 'Lexicon ajouté avec succès');
+            $this->addFlash('success', 'Lexique ajouté avec succès');
 
             return $this->redirectToRoute('lexicon_index');
         }
@@ -69,7 +69,7 @@ class LexiconController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-            $this->addFlash('success', 'Lexicon modifié avec succès');
+            $this->addFlash('success', 'Lexique modifié avec succès');
 
             return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
         }
