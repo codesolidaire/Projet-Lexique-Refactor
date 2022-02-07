@@ -1,22 +1,22 @@
 <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark py-5">
         <div class="container">
-            <a class="navbar-brand logo" href="{{ path('lexicon_index') }}">Lexique</a>
+            <a class="navbar-brand logo" href="{{ path('lexicon_index') }}">{{ 'navbar.lexicon'|trans }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100">
                     <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">À propos</a>
+                        <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">{{ 'navbar.about'|trans }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <form class="d-flex" action="{{ path('app_search') }}" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="terms">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" name="terms">
+                        <button class="btn btn-outline-success" type="submit">{{ 'navbar.search'|trans }}</button>
                     </form>
                     <li class="nav-item profil">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('lexicon_index') }}">
@@ -26,7 +26,7 @@
                     </li>
                     <li class="nav-item logout">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="/logout">
-                        se déconnecter
+                        {{ 'navbar.disconnect'|trans }}
                         </a>
                     </li>
 
@@ -37,22 +37,22 @@
                             </span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item">Connecté en tant que</a></li>
+                            <li><a class="dropdown-item">{{ 'navbar.user.as'|trans }}</a></li>
                             <li><strong class="ps-3"> {{ app.user.username }} </strong></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('register') }}">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ path('register') }}">{{ 'navbar.user.profile'|trans }}</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexicons</a></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">{{ 'navbar.user.lexicons'|trans }}</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class='dropdown-item' href="/logout">Logout</a></li>
+                            <li><a class='dropdown-item' href="/logout">{{ 'navbar.disconnect'|trans }}</a></li>
                         </ul>
                     </li>
                     {% else %}
                         <li class="nav-item register">
-                            <a class="nav-link active" aria-current="page" href="{{ path('register') }}">S'inscrire</a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('register') }}">{{ 'navbar.register'|trans }}</a>
                         </li>
                         <li class="nav-item login">
-                            <a class="nav-link active" aria-current="page" href="{{ path('login') }}">Se connecter</a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('login') }}">{{ 'navbar.connect'|trans }}</a>
                         </li>
                 {% endif %}
                 </ul>

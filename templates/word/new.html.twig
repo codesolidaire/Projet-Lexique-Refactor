@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Word{% endblock %}
+{% block title %}{{ 'word.new.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <h2 class="title-page">Ajouter un nouveau mot</h2>
+            <h2 class="title-page">{{ 'word.new.formtitle'|trans }}</h2>
             <div class="form-app border dark p-5">
                 {{ include('word/_form.html.twig') }}
-                <p>Vous pouvez utiliser du <a href = "https://www.markdownguide.org/cheat-sheet/">Markdown</a> dans votre définition.
-                    Par exemple, écrire *entre étoiles* gardera du texte <i>en italique</i>.</p>
-                <a href="{{ path('word_index') }}">Retour à la liste</a>
+                <p>{{ 'word.new.helper1'|trans }} <i>{{ 'word.new.italics'|trans }}</i>. {{ 'word.new.helper2'|trans }} <b>{{ 'word.new.bold'|trans }}</b>.</p>
+                <a href="{{ path('word_index') }}">{{ 'word.new.return'|trans }}</a>
             </div>
         </div>
     </div>

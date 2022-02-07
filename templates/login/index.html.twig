@@ -1,37 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}{{ 'login.title'|trans }}{% endblock %}
 
 {% block body %}
 <div class="flex-fill bg-light py-5">
     <div class="container">
         <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
-        <h2 class="title-page">Se connecter à <strong> Lexique </strong> </h2>
+        <h2 class="title-page">{{ 'login.titlepage'|trans }} <strong> Lexique </strong> </h2>
         <div class="form-app border p-5 bg-dark-app light">
             {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
             <form method="post" action="{{ path('login') }}" >
                 <div class="mb-3">
-                    <label class="form-label" for="username">email adresse</label>
+                    <label class="form-label" for="username">Email</label>
                     <input type="text" id="username" name="_username" class="form-control py-2" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" class="form-text">{{ 'login.nevershare'|login }}</div>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">mot de passe</label>
+                    <label for="password" class="form-label">{{ 'login.password'|trans }}</label>
                     <input type="password" id="password" name="_password" class="form-control py-2"/>
                     <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                        {{ 'login.helperpwd'|trans }}
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" class="btn btn-primary w-100 py-3 bg-dark-app fs-5" value="Se connecter"></input>
+                    <input type="submit" class="btn btn-primary w-100 py-3 bg-dark-app fs-5" value="{{ 'login.connect'|trans }}"></input>
                 </div>
             </form>
         </div>
         <div class="my-5 text-center d-flex justify-content-center">
             <div class="w-40 border border-2 rounded py-3">
-                <span>Nouvel utilisateur? </span><a href="{{ path('register') }}">Créer un compte</a>
+                <span>{{ 'login.new'|trans }} </span><a href="{{ path('register') }}">{{ 'login.create'|trans }}</a>
             </div>
         </div>
     </div>

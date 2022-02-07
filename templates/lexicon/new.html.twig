@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Lexicon{% endblock %}
+{% block title %}{{ 'lexicon.new.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <h2 class="title-page">Ajouter un nouveau Lexique</h2>
+            <h2 class="title-page">{{ 'lexicon.new.pagetitle'|trans }}</h2>
             <div class="form-app border dark p-5">
                 {{ include('lexicon/_form.html.twig') }}
-                <a href="{{ path('lexicon_index') }}">back to list</a>
+                <a href="{{ path('lexicon_index') }}">{{ 'lexicon.new.return'|trans }}</a>
             </div>
         </div>
     </div>

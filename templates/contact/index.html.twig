@@ -5,7 +5,7 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <h2 class="title-page">Contactez Nous !</h2>
+            <h2 class="title-page">{{ 'contact.title'|trans }}</h2>
             <div class="form-app border dark p-5">
 
                 {{ form_start(form) }}
@@ -15,7 +15,7 @@
                 <div class="mb-3">{{ form_row(form.title) }}</div>
                 <div class="mb-3">{{ form_row(form.message) }}</div>
                 <div class="mb-3">{{ form_rest(form) }}</div>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <button type="submit" class="btn btn-primary">{{ 'contact.button'|trans }}</button>
                 {{ form_end(form) }}
             </div>
         </div>
