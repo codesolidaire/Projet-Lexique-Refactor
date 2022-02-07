@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}About{% endblock %}
+{% block title %}{{ 'about.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
             <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
-            <h2 class="title-page">About us</h2>
+            <h2 class="title-page">{{ 'about.text.title'|trans }}</h2>
             <div class="border dark p-5">
-             </div>
+                {{ 'about.text.content'|trans }}
+            </div>
         </div>
     </div>
 {% endblock %}
