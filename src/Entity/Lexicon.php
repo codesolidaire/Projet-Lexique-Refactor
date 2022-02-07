@@ -36,7 +36,7 @@ class Lexicon
     private User $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=Word::class, mappedBy="lexicon")
+     * @ORM\OneToMany(targetEntity=Word::class, mappedBy="lexicon", cascade={"all"})
      */
     private Collection $words;
 
