@@ -28,7 +28,7 @@ class Word
      * @Assert\NotBlank()
      * @Assert\Length(
      *     max={255},
-     *     maxMessage="Your word cannot be longer than {{ limit }} characters"
+     *     maxMessage="Votre mot ne peut pas faire plus de {{ limit }} caractères"
      *     )
      */
     private string $name;
