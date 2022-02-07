@@ -27,7 +27,7 @@ class ContactType extends AbstractType
                 'lastname',
                 TextType::class,
                 [
-                    'label' => 'nom',
+                    'label' => 'Nom',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control']
                 ]

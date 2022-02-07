@@ -19,7 +19,7 @@ class UserType extends AbstractType
                 'username',
                 TextType::class,
                 [
-                    'label' => 'Username :',
+                    'label' => 'Nom d\'utilisateur :',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
                 ]
@@ -37,7 +37,7 @@ class UserType extends AbstractType
                 'password',
                 PasswordType::class,
                 [
-                    'label' => 'Password :',
+                    'label' => 'Mot de passe :',
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control w-25']
                 ]

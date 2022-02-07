@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lexicon{% endblock %}
+{% block title %}Lexique{% endblock %}
 
 {% block body %}
     <a href="{{ path('word_index') }}">Retour à la liste</a>
@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
         <tr>
-            <th>Title</th>
+            <th>Titre</th>
             <td>{{ lexicon.title }}</td>
         </tr>
         <tr>
@@ -31,7 +31,7 @@
         </tr>
         {% else %}
         <tr>
-            <td colspan="5">no records found</td>
+            <td colspan="5">Pas de mots enregistrés</td>
         </tr>
         {% endfor %}</td>
         </tr>
