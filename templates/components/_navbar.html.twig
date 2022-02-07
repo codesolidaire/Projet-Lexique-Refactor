@@ -19,7 +19,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <li class="nav-item profil" >
+                    <li class="nav-item profil">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('lexicon_index') }}">
                             <span class="img-profil me-2"><i class="fas fa-user fa-xs"></i></span>
                             <p class="m-0"> {{ app.user.username }} </p>
@@ -27,7 +27,7 @@
                     </li>
                     <li class="nav-item logout">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="/logout">
-                        se déconnecter
+                        Se déconnecter
                         </a>
                     </li>
 
@@ -43,15 +43,15 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ path('register') }}">Profil</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexicons</a></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexiques</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class='dropdown-item' href="/logout">Logout</a></li>
+                            <li><a class='dropdown-item' href="/logout">Se déconnecter</a></li>
                         </ul>
                     </li>
                         {% else %}
                         <li class="nav-item register">
                             <a class="nav-link active" aria-current="page" href="{{ path('register') }}">Créer son premier lexique</a>
-                        </li>    
+                        </li>
                         <li class="nav-item login">
                             <a class="nav-link active" aria-current="page" href="{{ path('login') }}">Se connecter</a>
                         </li>

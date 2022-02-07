@@ -87,7 +87,7 @@ class LexiconController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $lexicon->getTitle(), $request->request->get('_token'))) {
             $entityManager->remove($lexicon);
             $entityManager->flush();
-            $this->addFlash('success', 'Lexicon supprimé avec succès');
+            $this->addFlash('success', 'Lexique supprimé avec succès');
         }
 
         return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);

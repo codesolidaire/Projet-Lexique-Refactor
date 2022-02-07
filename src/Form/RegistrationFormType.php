@@ -19,7 +19,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => 'username',
+                'label' => 'Nom d\'utilisateur',
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
                 'attr' => [
@@ -27,7 +27,7 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
             ->add('email', TextType::class, [
-                'label' => 'email',
+                'label' => 'Email',
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
                 'attr' => [
@@ -35,12 +35,12 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password'
+                        'message' => 'Veuillez entrer un mot de passe'
                     ])
                 ]
             ])
             ->add('plainPassword', PasswordType::class, [
-                'label' => 'password',
+                'label' => 'Mot de passe',
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
                 'mapped' => false,
@@ -50,24 +50,24 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} caractères',
                         'max' => 4096,
                     ]),
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'accept condition',
+                'label' => 'Acceptez les conditions',
                 'label_attr' => ['class' => 'form-check-label'],
                 'attr' => ['class' => 'form-check-input'],
                 'required' => false,
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter nos termes.',
                     ]),
                 ],
             ])

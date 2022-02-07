@@ -5,24 +5,14 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-           <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
             <h2 class="title-page">{{ lexicon.title }}</h2>
-            <div class="">
-                <ul class="words">
-                {% for word in words %}
-                   <li class="word d-flex">
-                        <div>
-                            <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 50px; height:auto;">
-                        </div>
-                        <div>
-                            <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a>
-                            <p> {{ word.definition }} </p>
-                            <p> {{ word.createdAt|date('Y-m-d H:i:sP') }} </p>
-                        </div>
-                   </li>
+            <div class="border dark p-5">
+                {% for message in app.flashes('Succès') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
                 {% endfor %}
-                </ul>
-{#                 <table class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Mot</th>
@@ -36,12 +26,12 @@
                         <tr>
                             <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
                             <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-                            <td>{{ word.createdAt|date('Y-m-d H:i:sP') }}</td>
+                            <td>{{ word.createdAt|date('Y-m-d') }}</td>
                             <td>{% if word.filename %}
                                     <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
                                 {% endif %}</td>
                             <td>
-                                <a href="{{ path('word_edit', {'id': word.id}) }}"><i class="far fa-edit fa-1x dark"></i></a>
+                                <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
                             </td>
                             <td>
                                 {{ include('word/_delete_form.html.twig') }}
@@ -53,8 +43,9 @@
                         </tr>
                     {% endfor %}
                     </tbody>
-                </table> #}
-                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary">Ajouter un nouveau mot</a>
+                </table>
+                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}">Ajouter un nouveau mot</a>
+                <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
             </div>
         </div>
     </div>
