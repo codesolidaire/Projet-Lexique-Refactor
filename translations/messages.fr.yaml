@@ -3,7 +3,7 @@ about:
   text:
     title: Bienvenue
     content:
-      Porté par une équipe de développeurs lyonnais, Lexicon est un outil issu des projets de la Wild Code School.
+      Porté par une équipe de développeurs lyonnais, Lexique est un outil issu des projets de la Wild Code School.
       Créé de bout en bout en moins de trois semaines, cet outil propose à l'utilisateur de fabriquer et modifier ses propres dictionnaires, pour aider à son acquisition ou archivage de notions.
       Outil souple, Lexicon s'avèrera idéal pour l'apprentissage de langage technique, dans l'approche de langues étrangères, ou même comme wiki personnel pour de la prise de notes autour d'un travail créatif.
     we: Nous sommes
@@ -27,7 +27,7 @@ contact:
 home:
   title: Accueil
   text:
-    title: Bienvenue sur Lexicon, votre outil de lexiques personnels.
+    title: Bienvenue sur Lexique, votre outil de lexiques personnels.
     part1: Ici, dans votre espace personnel, vous pourrez créer différents lexiques autour des thèmes de votre choix, et les enrichir avec vos définitions.
     part2: Lexicon, c’est votre carnet à définitions illustré à votre guise et modifiable à l’infini!
     link: Inscrivez-vous
@@ -45,7 +45,7 @@ lexicon:
     title: TOUS LES LEXIQUES
     add: Ajouter un mot
     edit: Editer le lexique
-    delete: Are you sure you want to delete this Lexicon?
+    delete: Êtes-vous sûr de vouloir supprimer ce Lexique?
     deletebutton: Supprimer
     new: Ajouter un lexique
   new:

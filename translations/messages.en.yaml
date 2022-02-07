@@ -1,0 +1,119 @@
+about:
+  title: About
+  text:
+    title: Welcome
+    content:
+      Carried by a team of developers from Lyon, France, Lexique is a tool that sprung from the group projects of the Wild Code School.
+      Made entirely within three weeks, this tool allows a user to make and change their own dictionaries, to help with learning or keeping track of notions.
+      User-friendly and open, Lexique will prove ideal for the acquisition of technical language, for the learning of foreign languages, and even as a personal wiki for creative endeavors.
+    we: We are
+
+navbar:
+  lexicon: Lexicon
+  about: About
+  search: Search
+  disconnect: Log off
+  user:
+    as: Connected as
+    profile: Profile
+    lexicons: Lexicons
+  register: Register
+  connect: Log in
+
+contact:
+  title: Contact us !
+  button: Send
+
+home:
+  title: Home
+  text:
+    title: Welcome to Lexique, your personal lexicon tool.
+    part1: Here, in your personal space, you may create different lexicons on the subjects of your choice, and fill them with your definitions.
+    part2: Lexique is your definition notebook illustrated as you wish and infinitely editable!
+    link: Register
+    part3: and use this service for free right now.
+
+lexicon:
+  delete:
+    confirm: Are you sure you want to delete this Lexicon?
+    button: Delete
+  edit:
+    title: Update the Lexicon
+    formtitle: Edit
+    return: Return to the list
+  index:
+    title: ALL THE LEXICONS
+    add: Add a word
+    edit: Edit lexicon
+    delete: Are you sure you want to delete this Lexicon?
+    deletebutton: Delete
+    new: Add a lexicon
+  new:
+    title: New lexicon
+    pagetitle: Name of the Lexicon
+    return: Return to the list
+  show:
+    title: Lexicon
+    tabletitle: Title
+    tabledef: Definition
+    tableedit: Edit
+    none: No registered words
+    return: Return to the list
+
+login:
+  title: Welcome
+  titlepage: Connect to
+  nevershare: We will never share your email with anyone else.
+  password: Password
+  helperpwd: Your password must be 8 to 20 characters long, include letters and numbers, and include no spaces, no special characters, and no emoji.
+  connect: Connect
+  new: New user?
+  create: Sign in
+
+register:
+  title: Register
+  formtitle: Create an account
+  button: Sign in
+
+search:
+  title: Word index
+  results: Search results
+  words: Words
+  none: No result found.
+  return: Back to the list
+
+user:
+  title: User
+  list: Your list of users
+
+word:
+  delete:
+    confirm: Are you sure you want to delete this word?
+    button: Delete
+  form: Save
+  edit:
+    title: Edit word
+    formtitle: Edit word
+  index:
+    title: Word index
+    word: Word
+    def: Definition
+    edit: Edit
+    none: No word found
+    new: Add a new word
+    return: Back to the list
+  new:
+    title: New word
+    formtitle: Add a new word
+    helper1: You may use Markdown in your definition.
+      For example, writing *between stars* will keep your text
+    italics: in italics
+    helper2: Writing **between two stars** will keep text
+    bold: in bold
+    return: Back to the list
+  show:
+    title: Word
+    word: Word
+    def: Definition
+    edit: Edit
+    return: Return to lexicon
