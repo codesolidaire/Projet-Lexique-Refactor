@@ -40,7 +40,7 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                <a href="{{ path('word_new') }}">Ajouter un nouveau mot</a>
+                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}">Ajouter un nouveau mot</a>
                 <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
             </div>
         </div>

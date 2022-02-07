@@ -51,22 +51,6 @@ class WordType extends AbstractType
                     'label_attr' => ['class' => 'form-label'],
                     'attr' => ['class' => 'form-control']
                 ]
-            )
-
-            ->add(
-                'Lexicon',
-                EntityType::class,
-                [
-                    'class' => Lexicon::class,
-
-                    'choice_label' => 'title',
-                    'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control'],
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('u')
-                            ->where('u.user = :uid')
-                            ->setParameter('uid', $this->security->getToken()->getUser());
-                    }]
             );
     }
 
