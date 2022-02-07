@@ -81,16 +81,19 @@ body {
 
 .navbar {
   background: var(--dark);
-  font-size: 1.6rem;
+  padding: 3em 0;
+  font-size: 1em;
+  line-height: 2.4em;
 }
 .navbar-nav {
   margin-top: 1.875em;
 }
 .navbar .logo {
   color: var(--light);
-  font-size: 1.4em;
+  font-size: 1.5em;
   transition: all ease 0.2s;
   font-weight: bold;
+  margin: 0;
   margin-right: 2rem;
   padding: 0;
 }
@@ -104,6 +107,7 @@ body {
 }
 .navbar .nav-link {
   color: var(--light) !important;
+  padding: 0;
 }
 .navbar .img-profil {
   display: inline-block;
