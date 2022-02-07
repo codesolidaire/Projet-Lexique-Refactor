@@ -15,8 +15,8 @@
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <form class="d-flex" action="{{ path('app_search') }}" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="terms">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" name="terms">
+                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
                     </form>
                     <li class="nav-item profil">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{ path('lexicon_index') }}">
@@ -26,7 +26,7 @@
                     </li>
                     <li class="nav-item logout">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="/logout">
-                        se déconnecter
+                        Se déconnecter
                         </a>
                     </li>
 
@@ -42,9 +42,9 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ path('register') }}">Profil</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexicons</a></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexiques</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class='dropdown-item' href="/logout">Logout</a></li>
+                            <li><a class='dropdown-item' href="/logout">Se déconnecter</a></li>
                         </ul>
                     </li>
                     {% else %}
