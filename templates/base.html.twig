@@ -19,6 +19,7 @@
 		{% endblock %}
 	</head>
 	<body>
+
 		{# {% include 'components/_navbar.html.twig' %} #}
 		{% set current_path = app.request.attributes.get('_route') %}
 		{# {{ (current_path != 'login') ? include('components/_navbar.html.twig') : (null) }} #}
@@ -28,7 +29,13 @@
 		{{ include('components/_navbar.html.twig') }}
 		{% endif %}
 		<div class="app">
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
 		    {% block body %}
+
 		    {% endblock %}
 		</div>
 	</body>

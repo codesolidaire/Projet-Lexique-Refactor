@@ -27,7 +27,7 @@ class Contact
     /**
      * @var string|null
      * @Assert\NotBlank()
-     * @Assert\Length(min=5)
+     * @Assert\Length(min=2)
      */
     private $title;
 
