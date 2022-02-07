@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Word index{% endblock %}
+{% block title %}Index de mots{% endblock %}
 
 {% block body %}
     {# #Contenu #}
-    <h1>Search results :</h1>
+    <h1>Résultats de recherche :</h1>
 
     <table class="table">
         <thead>
@@ -19,7 +19,7 @@
                 </tr>
         {% else %}
             <tr>
-                <td colspan="5">No results found.</td>
+                <td colspan="5">Aucun résultat trouvé.</td>
             </tr>
         {% endfor %}
         </tbody>
