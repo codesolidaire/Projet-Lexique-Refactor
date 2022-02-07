@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Lexicon;
 use App\Entity\Word;
 use App\Form\WordType;
+use App\Repository\LexiconRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,19 +32,23 @@ class WordController extends AbstractController
     /**
      * @Route("/new", name="new")
      */
-    public function add(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Request $request, EntityManagerInterface $entityManager, LexiconRepository $lexiconRepository): Response
     {
         $word = new Word();
         $form = $this->createForm(WordType::class, $word);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $lexicon = $word->getLexicon();
+            //Hydrater objet Word
+            $lexiconId = $request->query->get('lexicon_id');
+            $word->setLexicon($lexiconRepository->findOneBy(['id' => $lexiconId]));
+
             $entityManager->persist($word);
             $entityManager->flush();
             $this->addFlash('success', 'Mot ajouté avec succès');
 
-            return $this->redirectToRoute('lexicon_show_content', ['id' => $lexicon->getId()]);
+            return $this->redirectToRoute('lexicon_show_content', ['id' => $lexiconId]);
         }
 
         return $this->render('word/new.html.twig', [
