@@ -4,7 +4,7 @@
 .DS_Store
 
 ###> Search engine indexer, use this URL to generate the index: http://localhost:8000/generate-index ###
-/fuzzy_storage/
+/fuzzy_storage/words
 
 ###> Website Uploads ###
 /public/images/words
