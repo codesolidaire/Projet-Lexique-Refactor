@@ -31,7 +31,7 @@ class LexiconController extends AbstractController
         $words = $lexicon->getWords();
         $lexicon = $lexiconRepository->findOneBy(['id' => $id]);
 
-        return $this->render('word/index.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
+        return $this->render('lexicon/show.html.twig', ['words' => $words, 'lexicon' => $lexicon]);
     }
 
     /**
