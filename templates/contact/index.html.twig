@@ -5,11 +5,10 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <h2 class="title-page">Contactez Nous !</h2>
+            <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
+            <h2 class="title-page">CONTACTEZ-NOUS !</h2>
             <div class="form-app border dark p-5">
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">{{ message }}</div>
-                {% endfor %}
+
                 {{ form_start(form) }}
                 <div class="mb-3">{{ form_row(form.firstname) }}</div>
                 <div class="mb-3">{{ form_row(form.lastname) }}</div>

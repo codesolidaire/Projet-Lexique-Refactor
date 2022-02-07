@@ -56,12 +56,18 @@
   .form-app {
     width: 40%;
   }
+  .form-app .form-label {
+    font-size: 1em;
+  }
   .navbar .search {
     margin-bottom: 0rem;
     display: flex;
     align-items: center;
     width: 30rem;
     margin-right: 1rem;
+  }
+  .title-page {
+    font-size: 7.2rem;
   }
 }
 

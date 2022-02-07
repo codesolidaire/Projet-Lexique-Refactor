@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
@@ -35,7 +34,7 @@ class ContactController extends AbstractController
 
             $mailer->send($email);
             $this->addFlash('success', 'Votre email a bien été envoyé');
-            return $this->redirectToRoute('home_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('lexicon_index', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('contact/index.html.twig', ['form' => $form->createView()]);
     }

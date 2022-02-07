@@ -5,13 +5,9 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <h2 class="title-page">Tout vos mots</h2>
+            <h2 class="title-page">{{ lexicon.title }}</h2>
             <div class="border dark p-5">
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">
-                        {{ message }}
-                    </div>
-                {% endfor %}
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -50,3 +46,4 @@
         </div>
     </div>
 {% endblock %}
+

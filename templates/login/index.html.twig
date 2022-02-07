@@ -14,12 +14,12 @@
             <form method="post" action="{{ path('login') }}" >
                 <div class="mb-3">
                     <label class="form-label" for="username">email adresse</label>
-                    <input type="text" id="username" name="_username" class="form-control py-2" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
+                    <input type="text" id="username" name="_username" class="form-control" aria-describedby="emailHelp" value="{{ lastUsername }}"/>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">mot de passe</label>
-                    <input type="password" id="password" name="_password" class="form-control py-2"/>
+                    <input type="password" id="password" name="_password" class="form-control"/>
                     <div id="passwordHelpBlock" class="form-text">
                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                     </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="my-5 text-center d-flex justify-content-center">
             <div class="w-40 border border-2 rounded py-3">
-                <span>New to Lexique ? </span><a href="{{ path('register') }}">Créer un compte</a>
+                <span>Nouvel utilisateur? </span><a href="{{ path('register') }}">Créer un compte</a>
             </div>
         </div>
     </div>

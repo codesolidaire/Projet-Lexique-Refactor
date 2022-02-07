@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control py-2'
+                    'class' => 'form-control'
                 ]
             ])
             ->add('email', TextType::class, [
@@ -31,7 +31,7 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => ['class' => 'form-label'],
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control py-2'
+                    'class' => 'form-control'
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -46,7 +46,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
-                    'class' => 'form-control py-2'
+                    'class' => 'form-control'
                 ],
                 'constraints' => [
                     new NotBlank([

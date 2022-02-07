@@ -5,12 +5,10 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
-            <h2 class="title-page">Editer</h2>
+           <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
+            <h2 class="title-page">Editer lexique</h2>
             <div class="form-app border dark p-5">
                 {{ include('lexicon/_form.html.twig', {'button_label': 'modifier'}) }}
-                {{ include('lexicon/_delete_form.html.twig') }}
-                <a href="{{ path('lexicon_index') }}">Retour à la liste</a>
             </div>
         </div>
     </div>
