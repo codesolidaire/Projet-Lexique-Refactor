@@ -1,55 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{#
-{% block body %}
-
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>{{ 'lexicon.show.tabletitle'|trans }}</th>
-            <td>{{ lexicon.title }}</td>
-        </tr>
-        <tr>
-            <th>{{ 'lexicon.show.tabledef'|trans }}</th>
-            <td>{% for word in words %}
-        <tr>
-            <td> <a href="{{ path('word_show', {'id': word.id}) }}">  {{ word.name }}</a></td>
-            <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-            <td>{{ word.createdAt|date('Y-m-d H:i:sP') }}</td>
-            <td>{% if word.filename %}
-                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                {% endif %}</td>
-            <td>
-                <a href="{{ path('word_edit', {'id': word.id}) }}">{{ 'lexicon.show.tableedit'|trans }}</a>
-            </td>
-            <td>
-                {{ include('word/_delete_form.html.twig') }}
-            </td>
-
-        </tr>
-        {% else %}
-        <tr>
-            <td colspan="5">{{ 'lexicon.show.none'|trans }}</td>
-        </tr>
-        {% endfor %}</td>
-        </tr>
-        <tr>
-            <th>Illustration</th>
-            <td>
-                {% if word.filename %}
-                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                {% endif %}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('word_index') }}">{{ 'lexicon.show.return'|trans }}</a>
-
-    <a href="{{ path('word_edit', {'id': word.id}) }}">{{ 'lexicon.show.tableedit'|trans }}</a>
-
-    {{ include('word/_delete_form.html.twig') }}
-#}
-
 {% block title %}{{ 'lexicon.show.title'|trans }}{% endblock %}
 
 {% block body %}
@@ -57,13 +7,8 @@
         <div class="container">
             <nav aria-label="breadcrumb" class="mb-5">
                 <ol class="breadcrumb">
-<<<<<<< HEAD
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
-=======
                     <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">{{ 'lexicon.show.back'|trans }}</a></li>
                     <li class="breadcrumb-item active"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
->>>>>>> 6ce7781d99f047f20f29ff0438dfd65e91e9a214
                 </ol>
             </nav>
             <h2 class="title-page">{{ lexicon.title }}</h2>
@@ -83,13 +28,7 @@
                    </div>
                 {% endfor %}
                 </ul>
-<<<<<<< HEAD
-                <div class="my-5">
-                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary d-block">Ajouter un nouveau mot</a>
-                </div>
-=======
                 <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary">{{ 'lexicon.show.add'|trans }}</a>
->>>>>>> 6ce7781d99f047f20f29ff0438dfd65e91e9a214
             </div>
         </div>
     </div>
