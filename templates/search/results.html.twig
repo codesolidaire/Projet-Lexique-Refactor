@@ -3,27 +3,34 @@
 {% block title %}{{ 'search.title'|trans }}{% endblock %}
 
 {% block body %}
-    {# #Contenu #}
-    <h1>{{ 'search.results'|trans }} :</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>{{ 'search.words'|trans }} :</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for returned_word in rows %}
-                <tr>
-                    <td> <a href="{{ path('word_show', {'id': returned_word.id}) }}"> {{ returned_word.name }}</td>
-                </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">{{ 'search.none'|trans }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('lexicon_index') }}">{{ 'search.return'|trans }}</a>
+        <div class="flex-fill bg-light py-5">
+            <div class="container">
+                <nav aria-label="breadcrumb" class="mb-5">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-1x "></i></a></li>
+                    </ol>
+                </nav>
+                <h2 class="title-page">{{ 'search.results'|trans }}</h2>
+                <div class="">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>{{ 'search.words'|trans }} :</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for returned_word in rows %}
+                                <tr>
+                                    <td> <a href="{{ path('word_show', {'id': returned_word.id}) }}"> {{ returned_word.name }}</td>
+                                </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">{{ 'search.none'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 {% endblock %}

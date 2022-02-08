@@ -127,9 +127,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.navbar .dropdown .dropdown-menu {
-  width: 15rem;
-}
+
 .navbar .dropdown {
   display: none;
 }
