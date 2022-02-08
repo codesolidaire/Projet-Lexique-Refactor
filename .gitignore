@@ -8,6 +8,7 @@
 
 ###> Website Uploads ###
 /public/images/words
+/public/assets/words/images
 
 ###> symfony/framework-bundle ###
 /.env.local
