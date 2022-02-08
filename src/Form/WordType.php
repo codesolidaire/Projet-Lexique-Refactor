@@ -2,25 +2,16 @@
 
 namespace App\Form;
 
-use App\Entity\Lexicon;
 use App\Entity\Word;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class WordType extends AbstractType
 {
-    private Security $security;
-    public function __construct(Security $securityContext)
-    {
-        $this->security = $securityContext;
-    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

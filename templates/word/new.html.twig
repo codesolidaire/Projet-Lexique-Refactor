@@ -5,10 +5,10 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
+        <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
             <h2 class="title-page">{{ 'word.new.formtitle'|trans }}</h2>
             <div class="form-app border dark p-5">
                 {{ include('word/_form.html.twig') }}
-                <p>{{ 'word.new.helper1'|trans }} <i>{{ 'word.new.italics'|trans }}</i>. {{ 'word.new.helper2'|trans }} <b>{{ 'word.new.bold'|trans }}</b>.</p>
                 <a href="{{ path('word_index') }}">{{ 'word.new.return'|trans }}</a>
             </div>
         </div>

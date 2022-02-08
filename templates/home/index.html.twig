@@ -6,18 +6,14 @@
 {% block stylesheets %}
     {# Ajouter votre style si nécessaire #}
 {% endblock %}
-
 {% block body %}
-    {# #Contenu #}
-    <h1>{{ 'home.text.title'|trans }}</h1>
-
-    <p>{{ 'home.text.part1'|trans }}</p>
-
-    <p><img src="{{ asset('images/screenshot.png') }}"></p>
-
-    <p>{{ 'home.text.part2'|trans }}</p>
-
-    <p><u><a href="{{ path('register') }}">{{ 'home.text.link'|trans }}</a></u> {{ 'home.text.part3'|trans }}</p>
-
-
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <h2 class="title-page">{{ 'home.text.title'|trans }}</h2>
+            <p>{{ 'home.text.part1'|trans }}</p>
+            {# <p><img src="{{ asset('images/screenshot.png') }}"></p> #}
+            <p>{{ 'home.text.part2'|trans }}</p>
+            <p><u><a href="{{ path('register') }}">{{ 'home.text.link'|trans }}</a></u> {{ 'home.text.part3'|trans }}</p>
+        </div>
+    </div>
 {% endblock %}

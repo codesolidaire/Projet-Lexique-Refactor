@@ -43,7 +43,7 @@ class SearchController extends AbstractController
             'database' => str_replace("/", "", $databaseParameters["path"]),
             'username' => $databaseParameters["user"],
             'password' => $databaseParameters["pass"],
-            // Create the fuzzy_storage directory in your project to store the index file
+            // Access the fuzzy_storage directory in your project to store the index file
             'storage' => __DIR__ . '/../../fuzzy_storage/',
             // A stemmer is optional
             'stemmer' => FrenchStemmer::class,

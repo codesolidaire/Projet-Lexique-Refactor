@@ -58,7 +58,8 @@ lexicon:
     tabledef: Définition
     tableedit: Modifier
     none: Pas de mots enregistrés
-    return: Retour à la liste
+    back: Retour à la liste
+    add: Ajouter un mot
 
 login:
   title: Bienvenue

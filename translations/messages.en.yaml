@@ -58,7 +58,8 @@ lexicon:
     tabledef: Definition
     tableedit: Edit
     none: No registered words
-    return: Return to the list
+    back: Home
+    add: Add a new word
 
 login:
   title: Welcome

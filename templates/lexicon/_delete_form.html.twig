@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('lexicon_delete', {'title': lexicon.title}) }}" onsubmit="return confirm('{{ 'lexicon.delete.confirm'|trans }}');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lexicon.title) }}">
-    <button class="btn btn-danger">{{ 'lexicon.delete.button'|trans }}</button>
+    <button class="btn"><i class="fas fa-trash-alt fa-2x danger">{{ 'lexicon.delete.button'|trans }}</i></button>
 </form>

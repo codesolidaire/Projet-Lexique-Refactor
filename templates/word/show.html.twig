@@ -5,14 +5,6 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Lexique</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ word.name }}</li>
-                </ol>
-            </nav>
             <h2 class="title-page">{{ word.name }}</h2>
             <div class="form-app border dark p-5">
                 <table class="table">
