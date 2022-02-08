@@ -1,7 +1,7 @@
 about:
   title: About
   text:
-    title: Welcome
+    title: About Us
     content:
       Carried by a team of developers from Lyon, France, Lexique is a tool that sprung from the group projects of the Wild Code School.
       Made entirely within three weeks, this tool allows a user to make and change their own dictionaries, to help with learning or keeping track of notions.
@@ -43,7 +43,7 @@ lexicon:
     formtitle: Edit
     return: Return to the list
   index:
-    title: ALL THE LEXICONS
+    title: LEXICONS
     add: Add a word
     edit: Edit lexicon
     delete: Are you sure you want to delete this Lexicon?

@@ -1,7 +1,7 @@
 about:
   title: À propos
   text:
-    title: Bienvenue
+    title: À propos
     content:
       Porté par une équipe de développeurs lyonnais, Lexique est un outil issu des projets de la Wild Code School.
       Créé de bout en bout en moins de trois semaines, cet outil propose à l'utilisateur de fabriquer et modifier ses propres dictionnaires, pour aider à son acquisition ou archivage de notions.
@@ -43,7 +43,7 @@ lexicon:
     formtitle: Editer
     return: Retour à la liste
   index:
-    title: TOUS LES LEXIQUES
+    title: LEXIQUES
     add: Ajouter un mot
     edit: Editer le lexique
     delete: Êtes-vous sûr de vouloir supprimer ce Lexique?
