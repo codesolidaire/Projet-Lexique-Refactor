@@ -8,11 +8,7 @@
 
 ###> Website Uploads ###
 /public/images/words
-<<<<<<< HEAD
 /public/assets/images/words
-=======
-/public/assets/words/images
->>>>>>> c9a15ce8753bcc4a2f60360795b8d037dd091495
 
 ###> symfony/framework-bundle ###
 /.env.local
