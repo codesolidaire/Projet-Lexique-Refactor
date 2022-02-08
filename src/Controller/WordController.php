@@ -32,8 +32,11 @@ class WordController extends AbstractController
     /**
      * @Route("/new", name="new")
      */
-    public function add(Request $request, EntityManagerInterface $entityManager, LexiconRepository $lexiconRepository): Response
-    {
+    public function add(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        LexiconRepository $lexiconRepository
+    ): Response {
         $word = new Word();
         $form = $this->createForm(WordType::class, $word);
         $form->handleRequest($request);
@@ -81,8 +84,11 @@ class WordController extends AbstractController
      */
     public function show(Word $word): Response
     {
+        $lexicon = $word->getLexicon();
+
         return $this->render('word/show.html.twig', [
             'word' => $word,
+            'lexicon' => $lexicon,
         ]);
     }
     /**

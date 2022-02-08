@@ -5,6 +5,13 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ word.name }}</li>
+                </ol>
+            </nav>
             <h2 class="title-page">{{ word.name }}</h2>
             <div class="form-app border dark p-5">
                 <table class="table">

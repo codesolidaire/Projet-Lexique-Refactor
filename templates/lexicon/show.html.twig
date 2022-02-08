@@ -5,11 +5,10 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-           <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
                 </ol>
             </nav>
             <h2 class="title-page">{{ lexicon.title }}</h2>
