@@ -24,7 +24,7 @@ security:
         default_target_path: lexicon_index
       logout:
         path: app_logout
-        target: lexicon_index
+        target: home_index
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#firewalls-authentication

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Lexicon;
 use App\Form\LexiconType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,10 +12,14 @@ use App\Repository\LexiconRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/lexicon", name="lexicon_")
+ * @IsGranted("ROLE_USER")
+ */
 class LexiconController extends AbstractController
 {
     /**
-     * @Route("", name="lexicon_index")
+     * @Route("", name="index")
      */
     public function index(LexiconRepository $repository): Response
     {
@@ -24,7 +29,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/show/{id}", name="lexicon_show_content")
+     * @Route("/show/{id}", name="show_content")
      */
     public function showContent(int $id, Lexicon $lexicon, LexiconRepository $lexiconRepository): Response
     {
@@ -35,7 +40,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/new", name="lexicon_new")
+     * @Route("/new", name="new")
      */
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -59,7 +64,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/edit/{title}", name="lexicon_edit", methods={"GET", "POST"})
+     * @Route("/edit/{title}", name="edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
     {
@@ -80,7 +85,7 @@ class LexiconController extends AbstractController
     }
 
     /**
-     * @Route("/lexicon/{title}", name="lexicon_delete", methods={"POST"})
+     * @Route("/{title}", name="delete", methods={"POST"})
      */
     public function delete(Request $request, Lexicon $lexicon, EntityManagerInterface $entityManager): Response
     {
