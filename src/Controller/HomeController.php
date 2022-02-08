@@ -14,14 +14,6 @@ class HomeController extends AbstractController
     /**
      * @Route("", name="index")
      */
-    public function indexNoLocale(): Response
-    {
-        return $this->redirectToRoute('home_index', ['_locale' => 'fr']);
-    }
-
-    /**
-     * @Route("", name="index")
-     */
     public function index(): Response
     {
         return $this->render('home/index.html.twig');

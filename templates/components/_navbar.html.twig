@@ -33,9 +33,11 @@
                         {{ 'navbar.disconnect'|trans }}
                         </a>
                     </li>
-                    <li><a class="dropdown-item" href="{{ path('home_index', {_locale: 'en'}) }}">English</a></li>
-                    <li><a class="dropdown-item" href="{{ path('home_index', {_locale: 'fr'}) }}">Français</a></li>
-                    <li class="nav-item dropdown ">
+                    <li class="nav-item">
+                        <a class="nav-link light px-2" href="{{ path('home_index', {_locale: 'en'}) }}"> <img src="{{ asset('/assets/images/pays/en.png') }}" /> </a>
+                        <a class="nav-link light px-2" href="{{ path('home_index', {_locale: 'fr'}) }}"><img src="{{ asset('/assets/images/pays/fr.png') }}" /></a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle p-0 d-flex align-items-center" href="{{ path('user_index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="img-profil">
                                 <i class="fas fa-user fa-xs"></i>
@@ -65,3 +67,5 @@
         </div>
     </nav>
 </header>
+
+
