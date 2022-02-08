@@ -117,6 +117,41 @@
   .card {
     max-width: 50rem;
   }
+  .home {
+    display: flex;
+    margin-top: 10rem;
+  }
+  .home img {
+    flex: 1;
+  }
+  .home .home-text {
+    margin-left: 4rem;
+    flex: 1;
+  }
+  .home .home-text .title {
+    font-weight: 700;
+    font-size: 4.2rem;
+    line-height: 1.1em;
+    margin-bottom: 1em;
+    color: var(--dark);
+  }
+  .home p {
+    font-size: 2.1rem;
+    line-height: 1.1em;
+    margin-bottom: 2em;
+  }
+  .home .btn-home {
+    font-size: 2.4rem;
+    border-radius: 30px;
+    border: 0.1rem solid transparent;
+    transition: all ease 1s;
+  }
+  .home .btn-home:hover {
+    transition: all ease 1s;
+    background: var(--light);
+    color: var(--dark);
+    border: 0.1rem solid var(--dark);
+  }
 }
 
 @media (min-width: 1200px) {
