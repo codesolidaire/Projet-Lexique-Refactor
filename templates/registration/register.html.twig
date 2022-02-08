@@ -5,7 +5,7 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
+            <a href="{{ path('home_index') }}"><i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i></a>
             <h2 class="title-page">{{ 'register.formtitle'|trans }}</h2>
             <div class="form-app border dark p-5">
                  {{ form_start(registrationForm) }}
