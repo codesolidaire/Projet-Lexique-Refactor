@@ -1,0 +1,89 @@
+@media (min-width: 576px) {
+  .list-lexiques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .list-lexiques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    font-size: 1em;
+  }
+  .navbar .navbar-nav-right {
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar .nav-item {
+    border-top: none;
+    padding: 0;
+  }
+  .navbar .nav-link {
+    transition: all ease 0.2s;
+  }
+  .navbar .nav-link:hover {
+    transition: all ease 0.2s;
+    transform: translateY(-5px);
+  }
+  .navbar .dropdown .nav-link {
+    transform: translateY(0);
+  }
+  .navbar .dropdown {
+    display: block;
+    margin-left: auto;
+    padding-right: 5rem;
+  }
+  .navbar .dropdown .dropdown-menu {
+    line-height: 1em;
+  }
+  .navbar .profil {
+    display: none;
+  }
+  .navbar .logout {
+    display: none;
+  }
+  .register {
+    margin-left: auto;
+  }
+  .navbar-nav {
+    margin-top: 0;
+  }
+  .form-app {
+    width: 40%;
+  }
+  .form-app .form-label {
+    font-size: 1em;
+  }
+  .navbar .search {
+    margin-bottom: 0rem;
+    display: flex;
+    align-items: center;
+    width: 30rem;
+    margin-right: 1rem;
+  }
+  .title-page {
+    font-size: 7.2rem;
+  }
+  .words {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .signup {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}

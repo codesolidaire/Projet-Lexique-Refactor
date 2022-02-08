@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
+            <h2 class="title-page">CONTACTEZ-NOUS !</h2>
+            <div class="form-app border dark p-5">
+
+                {{ form_start(form) }}
+                <div class="mb-3">{{ form_row(form.firstname) }}</div>
+                <div class="mb-3">{{ form_row(form.lastname) }}</div>
+                <div class="mb-3">{{ form_row(form.email) }}</div>
+                <div class="mb-3">{{ form_row(form.title) }}</div>
+                <div class="mb-3">{{ form_row(form.message) }}</div>
+                <div class="mb-3">{{ form_rest(form) }}</div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

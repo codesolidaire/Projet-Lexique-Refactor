@@ -24,7 +24,7 @@ RUN composer install \
 FROM node:14-alpine as frontend
 
 COPY package.json webpack.config.js yarn.lock /app/
-COPY ./assets/ /app/assets/
+COPY public/assets/ /app/assets/
 
 
 WORKDIR /app

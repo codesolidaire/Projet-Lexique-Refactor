@@ -5,8 +5,7 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-           <a href="{{ path('lexicon_index') }}"><i class="fas fa-arrow-left fa-2x dark"></i></a>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="mb-5">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
@@ -15,17 +14,23 @@
             <h2 class="title-page">{{ lexicon.title }}</h2>
             <div class="words">
                 {% for word in words %}
-                   <div class="word d-flex flex-column align-items-center mb-5">
-                            <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 80px; height:auto;">
-                        <div class="d-flex flex-column mt-5">
-                            <a href="{{ path('word_show', {'id': word.id}) }}" class="mb-2"><strong >{{ word.name }}</strong></a>
+                   <div class="word mb-5">
+                        <div class="">
+                            <a href="{{ path('word_show', {'id': word.id}) }}" class="mb-2 d-flex align-items-center">
+                                {% if word.filename %}
+                                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 30px;">
+                                {% endif %}
+                                <strong class="ms-3">{{ word.name }}</strong>
+                            </a>
                             <p> {{ word.definition }} </p>
-                            <p> {{ word.createdAt|date('Y-m-d H:i:sP') }} </p>
+                            <p> {{ word.createdAt|date('d-m-Y') }} </p>
                         </div>
                    </div>
                 {% endfor %}
                 </ul>
-                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary">Ajouter un nouveau mot</a>
+                <div class="my-5">
+                <a href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}" class="btn btn-primary d-block">Ajouter un nouveau mot</a>
+                </div>
             </div>
         </div>
     </div>

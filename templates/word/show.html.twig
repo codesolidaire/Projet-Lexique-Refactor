@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot{% endblock %}
+
+{% block body %}
+    <div class="flex-fill bg-light py-5">
+        <div class="container">
+            <div class="d-flex mb-5">
+                <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}"><i class="fas fa-arrow-left fa-1x "></i></a>
+                <a href="{{ path('word_edit', {'id': word.id}) }}" class="ms-auto"><img src="{{ asset('/assets/images/icons/edit.svg') }}" style="width:20px"/></a>
+                {{ include('word/_delete_form.html.twig') }}
+            </div>
+            <h2 class="title-page">{{ word.name }}</h2>
+            <div class="card">
+            {% if word.filename %}
+                <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top"class="card-img-top px-5">
+            {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ word.name }}</h5>
+                  <p class="card-text">{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
