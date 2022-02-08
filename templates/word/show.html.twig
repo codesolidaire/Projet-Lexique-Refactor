@@ -1,43 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot{% endblock %}
+{% block title %}{{ 'word.show.title'|title }}{% endblock %}
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
 
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ word.name }}</li>
-                </ol>
-            </nav>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ word.name }}</li>
+                    </ol>
+                </nav>
+                <div class="d-flex mb-5">
+                <a href="{{ path('word_edit', {'id': word.id}) }}" class="ms-auto"><img src="{{ asset('/assets/images/icons/edit.svg') }}" style="width:20px"/></a>
+                {{ include('word/_delete_form.html.twig') }}
+                </div>
+
 
             <h2 class="title-page">{{ word.name }}</h2>
-            <div class="form-app border dark p-5">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <th>Mot</th>
-                        <td>{{ word.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Définition</th>
-                        <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
-                    </tr>
-                    <tr>
-                        <th>Illustration</th>
-                        <td>
-                            {% if word.filename %}
-                                <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top" style="width: 20%; height:auto;">
-                            {% endif %}</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
-                <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour au lexique</a>
-                {{ include('word/_delete_form.html.twig') }}
+            <div class="card">
+            {% if word.filename %}
+                <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top"class="card-img-top px-5">
+            {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ word.name }}</h5>
+                  <p class="card-text">{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</p>
+                </div>
             </div>
         </div>
     </div>

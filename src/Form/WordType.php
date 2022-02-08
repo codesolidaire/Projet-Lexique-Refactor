@@ -40,7 +40,7 @@ class WordType extends AbstractType
                     'required' => false,
                     'label' => 'Joindre une image',
                     'label_attr' => ['class' => 'form-label'],
-                    'attr' => ['class' => 'form-control']
+                    'attr' => ['class' => 'form-control p-1']
                 ]
             );
     }

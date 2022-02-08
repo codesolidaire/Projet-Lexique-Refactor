@@ -36,7 +36,9 @@ a {
   text-decoration: none;
   color: var(--text);
 }
-
+img {
+  max-width: 100%;
+}
 /* variables */
 :root {
   --lexics-color: $light;
@@ -65,8 +67,9 @@ a {
 .btn {
   background: var(--dark);
   font-size: 0.8em;
+  font-weight: bold;
   border: 0;
-  padding: 0.4em 0.8em;
+  padding: 0.6em 1em;
 }
 
 html {
@@ -146,16 +149,28 @@ body {
   margin: auto;
 }
 
-.form-app .form-label {
+.form-app .form-label,
+.form-check-label {
   font-size: 0.8em;
+  font-weight: bold;
 }
 .form-control {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  font-size: 1em;
+}
+.form-control::placeholder {
+  font-size: 1em;
 }
 .form-app .form-text {
   font-size: 0.6em;
 }
-
+.invalid-feedback {
+  font-size: 0.6em;
+}
+/* show lexicons */
+.signup {
+  width: 100%;
+}
 /* footer */
 .footer{
   display: flex;

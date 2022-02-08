@@ -2,10 +2,9 @@
 
         {{ form_row(form.name) }}
         {{ form_row(form.definition) }}
-            <p class="fs-5">Vous pouvez utiliser du <a href = "https://www.markdownguide.org/cheat-sheet/">Markdown</a> dans votre définition.
-            Par exemple, écrire *entre étoiles* gardera du texte <i>en italique</i>.</p>
+            <p class="fs-5">{{ 'word.new.helper1'|trans }} <i>{{ 'word.new.italics'|trans }}</i>. {{ 'word.new.helper2'|trans }} <b>{{ 'word.new.bold'|trans }}</b>..</p>
         {{ form_row(form.imageFile) }}
         {{ form_widget(form) }}
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">{{ 'word.form'|trans }}</button>
     {{ form_end(form) }}
 

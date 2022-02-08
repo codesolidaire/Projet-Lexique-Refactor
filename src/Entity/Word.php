@@ -12,7 +12,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=WordRepository::class)
- *@Vich\Uploadable
+ * @Vich\Uploadable
  */
 class Word
 {
@@ -43,7 +43,7 @@ class Word
      * @var File|null
      * @Vich\UploadableField(mapping="word_image", fileNameProperty="filename")
      * @Assert\File(
-     *     maxSize = "1M",
+     *     maxSize = "5M",
      *     mimeTypes = {"image/jpeg", "image/png", "image/webp"},
      * )
      */
