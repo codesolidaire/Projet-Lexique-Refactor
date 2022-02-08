@@ -77,7 +77,6 @@ html {
 }
 
 body {
-  background-color: var(--light);
   font-size: 1.6rem;
 }
 .app {
@@ -169,29 +168,58 @@ body {
 .signup {
   width: 100%;
 }
+.home .home-text {
+  margin-left: 0;
+  flex: 1;
+  margin-top: 2rem;
+}
+.home .home-text .title {
+  font-weight: 700;
+  font-size: 3.8rem;
+  line-height: 1.1em;
+  margin-bottom: 1em;
+  color: var(--dark);
+}
+.home p {
+  font-size: 1.9rem;
+  line-height: 1.1em;
+  margin-bottom: 2em;
+}
+.home .btn-home {
+  font-size: 1.6rem;
+  border-radius: 30px;
+  border: 0.1rem solid transparent;
+  transition: all ease 1s;
+}
+.home .btn-home:hover {
+  transition: all ease 1s;
+  background: var(--light);
+  color: var(--dark);
+  border: 0.1rem solid var(--dark);
+}
 /* footer */
-.footer{
+.footer {
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
   padding: 2rem 0;
 }
-.footer .logo-footer{
+.footer .logo-footer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.footer .logo-footer-img{
+.footer .logo-footer-img {
   max-width: 5rem;
   margin-bottom: 2rem;
 }
-.title-footer{
+.title-footer {
   font-size: 2rem;
   line-height: 2rem;
   margin-bottom: 2rem;
   text-align: center;
 }
-.footer .list-socials{
+.footer .list-socials {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,11 +227,11 @@ body {
   margin: auto;
   margin-bottom: 2rem;
 }
-.underline{
+.underline {
   margin-bottom: 2rem;
 }
-.footer .list-socials-item{
-  border: .1rem solid var(--text);
+.footer .list-socials-item {
+  border: 0.1rem solid var(--text);
   border-radius: 100%;
   width: 5rem;
   height: 5rem;
@@ -213,17 +241,17 @@ body {
   cursor: pointer;
   background: var(--white);
 }
-.footer .menu-footer{
+.footer .menu-footer {
   display: flex;
   justify-content: center;
   padding: 0;
   margin-bottom: 1rem;
 }
-.footer .menu-footer .menu-footer-item{
+.footer .menu-footer .menu-footer-item {
   margin-right: 1rem;
   font-size: 1rem;
   line-height: 1rem;
 }
-.footer .menu-footer .menu-footer-item a{
+.footer .menu-footer .menu-footer-item a {
   color: var(--primary);
 }

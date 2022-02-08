@@ -38,7 +38,11 @@
 			{% block body %}
 
 		    {% endblock %}
+			{% if current_path == 'home_index'%}
+			{{ '' }}
+			{% else %}
 			{% include 'components/_footer.html.twig' %}
+			{% endif %}
 
 		</div>
 	</body>

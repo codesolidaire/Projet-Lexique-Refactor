@@ -7,13 +7,16 @@
     {# Ajouter votre style si nécessaire #}
 {% endblock %}
 {% block body %}
-    <div class="flex-fill bg-light py-5">
+    <div class="flex-fill py-5">
         <div class="container">
-            <h2 class="title-page">{{ 'home.text.title'|trans }}</h2>
-            <p>{{ 'home.text.part1'|trans }}</p>
-            {# <p><img src="{{ asset('images/screenshot.png') }}"></p> #}
-            <p>{{ 'home.text.part2'|trans }}</p>
-            <p><u><a href="{{ path('register') }}">{{ 'home.text.link'|trans }}</a></u> {{ 'home.text.part3'|trans }}</p>
+            <div class="home">
+                <img src="{{ asset('/assets/images/book2.jpg') }}" alt="img" />
+                <div class="home-text">
+                    <h2 class="title">{{ 'home.text.title'|trans }}</h2>
+                    <p>{{ 'home.text.part1'|trans }} <br /> {{ 'home.text.part2'|trans }} <br /> <u><a href="{{ path('register') }}">{{ 'home.text.link'|trans }}</a></u> {{ 'home.text.part3'|trans }}  </p>
+                    <a href="#" class="btn btn-primary btn-home">Créer un compte</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
