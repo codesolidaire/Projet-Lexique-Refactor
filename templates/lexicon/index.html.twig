@@ -27,19 +27,18 @@
                                     <button id="btnGroupDrop1" class="border-0 py-1 px-3" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-ellipsis-h gray-500"></i>
                                     </button>
-<<<<<<< HEAD
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="width:205px">
                                         <li class="d-flex align-items-center p-2">
                                             <img src="{{ asset('/assets/images/icons/plus.svg') }}" style="width:20px" />
                                             <a class="dropdown-item fs-3" href="{{ path('word_new', {'lexicon_id': lexicon.id}) }}">
-                                                Ajouter un mot
+                                                {{ 'lexicon.index.add'|trans }}
                                             </a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li class="d-flex align-items-center p-2">
                                             <img src="{{ asset('/assets/images/icons/edit.svg') }}" style="width:20px" />
                                             <a class="dropdown-item fs-3 " href="{{ path('lexicon_edit', {'title': lexicon.title}) }}">
-                                                Editer le lexique
+                                                {{ 'lexicon.index.edit'|trans }}
                                             </a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
@@ -47,16 +46,8 @@
                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lexicon.title) }}">
                                             <button class="border-0 bg-white fs-3 text-start">
                                                 <img src="{{ asset('/assets/images/icons/trash.svg') }}" style="width:20px" class="me-2" />
-                                                 Supprimer le lexique
+                                                 {{ 'lexicon.index.deletebutton'|trans }}
                                             </button>
-=======
-                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <li><a class="dropdown-item" href="{{ path('word_new') }}">{{ 'lexicon.index.add'|trans }}</a></li>
-                                        <li><a class="dropdown-item" href="{{ path('lexicon_edit', {'title': lexicon.title}) }}">{{ 'lexicon.index.edit'|trans }}</a></li>
-                                        <form method="post" action="{{ path('lexicon_delete', {'title': lexicon.title}) }}" onsubmit="return confirm('{{ 'lexicon.index.delete'|trans }}');" class="lexicon_delete">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lexicon.title) }}">
-                                            <button>{{ 'lexicon.index.deletebutton'|trans }}</button>
->>>>>>> 6ce7781d99f047f20f29ff0438dfd65e91e9a214
                                         </form>
                                     </ul>
                                 </div>
