@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier le mot{% endblock %}
+{% block title %}{{ 'word.edit.title'|trans }}{% endblock %}
 
 {% block body %}
    <div class="flex-fill bg-light py-5">
         <div class="container">
             <i class="fas fa-book-open fa-4x d-block text-center mb-4 dark"></i>
-            <h2 class="title-page">Modifier le mot</h2>
+            <h2 class="title-page">{{ 'word.edit.formtitle'|trans }}</h2>
             <div class="form-app border dark p-5">
                 {{ include('word/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
                 {{ include('word/_delete_form.html.twig') }}

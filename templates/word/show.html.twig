@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mot{% endblock %}
+{% block title %}{{ 'word.show.title'|title }}{% endblock %}
 
 {% block body %}
     <div class="flex-fill bg-light py-5">
@@ -17,11 +17,11 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Mot</th>
+                        <th>{{ 'word.show.word'|trans }}</th>
                         <td>{{ word.name }}</td>
                     </tr>
                     <tr>
-                        <th>Définition</th>
+                        <th>{{ 'word.show.def'|trans }}</th>
                         <td>{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</td>
                     </tr>
                     <tr>
@@ -33,8 +33,8 @@
                     </tr>
                     </tbody>
                 </table>
-                <a href="{{ path('word_edit', {'id': word.id}) }}">Modifier</a>
-                <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">Retour au lexique</a>
+                <a href="{{ path('word_edit', {'id': word.id}) }}">{{ 'word.show.edit'|trans }}</a>
+                <a href="{{ path('lexicon_show_content', {'id': word.lexicon.id}) }}">{{ 'word.show.return'|trans }}</a>
                 {{ include('word/_delete_form.html.twig') }}
             </div>
         </div>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur{% endblock %}
+{% block title %}{{ 'user.title'|trans }}{% endblock %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -9,5 +9,5 @@
 
 {% block body %}
     {# #Contenu #}
-    <h1>Votre liste d'utilisateurs</h1>
+    <h1>{{ 'user.list'|trans }}</h1>
 {% endblock %}

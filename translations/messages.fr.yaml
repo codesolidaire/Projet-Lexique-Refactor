@@ -1,0 +1,121 @@
+about:
+  title: À propos
+  text:
+    title: Bienvenue
+    content:
+      Porté par une équipe de développeurs lyonnais, Lexique est un outil issu des projets de la Wild Code School.
+      Créé de bout en bout en moins de trois semaines, cet outil propose à l'utilisateur de fabriquer et modifier ses propres dictionnaires, pour aider à son acquisition ou archivage de notions.
+      Outil souple, Lexicon s'avèrera idéal pour l'apprentissage de langage technique, dans l'approche de langues étrangères, ou même comme wiki personnel pour de la prise de notes autour d'un travail créatif.
+    we: Nous sommes
+
+navbar:
+  lexicon: Lexique
+  lexicons: Lexiques
+  about: À propos
+  search: Rechercher
+  disconnect: Se déconnecter
+  user:
+    as: Connecté en tant que
+    profile: Profil
+    lexicons: Lexiques
+  register: S'inscrire
+  connect: Se connecter
+
+contact:
+  title: Contactez-nous !
+  button: Envoyer
+
+home:
+  title: Accueil
+  text:
+    title: Bienvenue sur Lexique, votre outil de lexiques personnels.
+    part1: Ici, dans votre espace personnel, vous pourrez créer différents lexiques autour des thèmes de votre choix, et les enrichir avec vos définitions.
+    part2: Lexicon, c’est votre carnet à définitions illustré à votre guise et modifiable à l’infini!
+    link: Inscrivez-vous
+    part3: et profitez de ce service gratuit dès maintenant.
+
+lexicon:
+  delete:
+    confirm: Êtes-vous sûr de vouloir supprimer ce Lexique?
+    button: Supprimer
+  edit:
+    title: Mettre à jour le Lexique
+    formtitle: Editer
+    return: Retour à la liste
+  index:
+    title: TOUS LES LEXIQUES
+    add: Ajouter un mot
+    edit: Editer le lexique
+    delete: Êtes-vous sûr de vouloir supprimer ce Lexique?
+    deletebutton: Supprimer
+    new: Ajouter un lexique
+  new:
+    title: Nouveau Lexique
+    pagetitle: Nom du Lexique
+    return: Retour à la liste
+  show:
+    title: Lexique
+    tabletitle: Titre
+    tabledef: Définition
+    tableedit: Modifier
+    none: Pas de mots enregistrés
+    back: Retour à la liste
+    add: Ajouter un mot
+
+login:
+  title: Bienvenue
+  titlepage: Se connecter à
+  nevershare: Nous ne partagerons jamais votre email avec autrui.
+  password: Mot de passe
+  helperpwd: Votre mot de passe doit faire de 8 à 20 caractères, contenir des lettres et des nombres, et ne doit contenir ni espaces, ni caractères spéciaux, ni emoji.
+  connect: Se connecter
+  new: Nouvel utilisateur?
+  create: Créer un compte
+
+register:
+  title: S'inscrire
+  formtitle: Créer un compte
+  button: S'inscrire
+
+search:
+  title: Index de mots
+  results: Résultats de recherche
+  words: Mots
+  none: Aucun résultat trouvé.
+  return: Retour à la liste
+
+user:
+  title: Utilisateur
+  list: Votre liste d'utilisateurs
+
+word:
+  delete:
+    confirm: Êtes-vous sûr de vouloir supprimer ce mot?
+    button: Supprimer
+  form: Enregistrer
+  edit:
+    title: Modifier le mot
+    formtitle: Modifier le mot
+  index:
+    title: Index de mots
+    word: Mot
+    def: Définition
+    edit: Modifier
+    none: Aucun mot trouvé
+    new: Ajouter un nouveau mot
+    return: Retour à la liste
+  new:
+    title: Nouveau mot
+    formtitle: Ajouter un nouveau mot
+    helper1: Vous pouvez utiliser du Markdown dans votre définition.
+      Par exemple, écrire *entre étoiles* gardera du texte
+    italics: en italique
+    helper2: Ecrire **entre deux étoiles** gardera du texte
+    bold: en gras
+    return: Retour à la liste
+  show:
+    title: Mot
+    word: Mot
+    def: Définition
+    edit: Modifier
+    return: Retour au lexique
