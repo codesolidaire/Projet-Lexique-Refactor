@@ -155,3 +155,62 @@ body {
 .form-app .form-text {
   font-size: 0.6em;
 }
+
+/* footer */
+.footer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+.footer .logo-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .logo-footer-img{
+  max-width: 5rem;
+  margin-bottom: 2rem;
+}
+.title-footer{
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.footer .list-socials{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 30rem;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+.underline{
+  margin-bottom: 2rem;
+}
+.footer .list-socials-item{
+  border: .1rem solid var(--text);
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--white);
+}
+.footer .menu-footer{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.footer .menu-footer .menu-footer-item{
+  margin-right: 1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.footer .menu-footer .menu-footer-item a{
+  color: var(--primary);
+}
