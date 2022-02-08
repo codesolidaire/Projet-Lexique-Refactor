@@ -34,21 +34,20 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="{{ path('user_index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle p-0 d-flex align-items-center" href="{{ path('user_index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="img-profil">
                                 <i class="fas fa-user fa-xs"></i>
                             </span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item">Connecté en tant que</a></li>
-                            <li><strong class="ps-3"> {{ app.user.username }} </strong></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('register') }}">Profil</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}">Lexiques</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class='dropdown-item' href="/logout">Se déconnecter</a></li>
+                            <li><a class="dropdown-item">Connecté en tant que <br /> <strong>{{ app.user.username }}</strong></a></li>
+                            <li><hr class="dropdown-divider m-0 p-0"></li>
+                            <li><a class="dropdown-item" href="{{ path('register') }}"><i class="fas fa-user fa-xs fa-1x me-2"></i>Profil</a></li>
+                            <li><hr class="dropdown-divider m-0 p-0"></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}"><i class="fas fa-book-open me-2"></i>Lexiques</a></li>
+                            <li><hr class="dropdown-divider m-0 p-0"></li>
+                            <li><a class='dropdown-item' href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
                         </ul>
                     </li>
                         {% else %}

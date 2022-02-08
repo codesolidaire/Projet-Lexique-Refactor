@@ -1,8 +1,8 @@
+/public/assets/images/words/*
 ###> Hidden files of OS or IDE ###
 .idea
 .vscode
 .DS_Store
-
 ###> Search engine indexer, use this URL to generate the index: http://localhost:8000/generate-index ###
 /fuzzy_storage/words
 
