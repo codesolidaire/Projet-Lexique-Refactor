@@ -18,13 +18,15 @@
                 </ol>
             </nav>
             <h2 class="title-page">{{ word.name }}</h2>
-            <div class="card">
-            {% if word.filename %}
-                <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top"class="card-img-top px-5">
-            {% endif %}
-                <div class="card-body">
-                  <h5 class="card-title">{{ word.name }}</h5>
-                  <p class="card-text">{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</p>
+            <div class="d-flex flex-column align-items-center">
+                <div class="card">
+                {% if word.filename %}
+                    <img src="{{ vich_uploader_asset(word, 'imageFile') }}" alt="card-img-top"class="card-img-top px-5">
+                {% endif %}
+                    <div class="card-body">
+                      <h5 class="card-title">{{ word.name }}</h5>
+                      <p class="card-text">{% apply markdown_to_html %}{{ word.definition }}{% endapply %}</p>
+                    </div>
                 </div>
             </div>
         </div>

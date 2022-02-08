@@ -40,18 +40,21 @@
     display: flex;
     align-items: center;
     margin-left: auto;
-    padding-right: 12rem;
   }
   .navbar .dropdown .dropdown-menu {
     line-height: 1em;
     font-size: 1em;
     width: 190px;
+    transform: translateX(-14rem);
   }
   .navbar .dropdown .dropdown-menu .dropdown-item i {
     color: var(--dark);
   }
   .navbar .dropdown .dropdown-menu .dropdown-item {
     padding: 1rem;
+  }
+  .navbar .dropdown .dropdown-menu li:first-child:hover {
+    background: transparent;
   }
   .navbar .dropdown .dropdown-menu .dropdown-item:hover {
     background: var(--dark);
@@ -110,6 +113,9 @@
   }
   .signup {
     width: 40%;
+  }
+  .card {
+    max-width: 50rem;
   }
 }
 
