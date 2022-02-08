@@ -9,14 +9,14 @@
                 <ul class="navbar-nav w-100">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <form class="search" action="{{ path('app_search') }}" method="get">
-                        <input class="form-control" type="search" placeholder="chercher un mot..." aria-label="Search" name="terms">
+                        <input class="form-control" type="search" placeholder="Recherche" aria-label="Search" name="terms">
                     </form>
                     <li class="nav-item" >
-                        <a class="nav-link active " aria-current="page" href="{{ path('lexicon_index') }}">Lexiques</a>
+                        <a class="nav-link active " aria-current="page" href="{{ path('lexicon_index') }}">{{ 'navbar.lexicons'|trans }}</a>
                     </li>
                 {% endif %}
                     <li class="nav-item" >
-                        <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">À propos</a>
+                        <a class="nav-link active " aria-current="page" href="{{ path('about_index') }}">{{ 'navbar.about'|trans }}</a>
                     </li>
                     <li class="nav-item" >
                         <a class="nav-link active" aria-current="page" href="{{ path('contact_index') }}">Contact</a>
@@ -30,10 +30,11 @@
                     </li>
                     <li class="nav-item logout">
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="/logout">
-                        Se déconnecter
+                        {{ 'navbar.disconnect'|trans }}
                         </a>
                     </li>
-
+                    <li><a class="dropdown-item" href="{{ path('home_index', {_locale: 'en'}) }}">English</a></li>
+                    <li><a class="dropdown-item" href="{{ path('home_index', {_locale: 'fr'}) }}">Français</a></li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle p-0 d-flex align-items-center" href="{{ path('user_index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="img-profil">
@@ -41,21 +42,22 @@
                             </span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item">Connecté en tant que <br /> <strong>{{ app.user.username }}</strong></a></li>
+                            <li><a class="dropdown-item">{{ 'navbar.user.as'|trans }}</a></li>
+                            <li><strong class="ps-3"> {{ app.user.username }} </strong></li>
                             <li><hr class="dropdown-divider m-0 p-0"></li>
-                            <li><a class="dropdown-item" href="{{ path('register') }}"><i class="fas fa-user fa-xs fa-1x me-2"></i>Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ path('register') }}"><i class="fas fa-user fa-xs fa-1x me-2"></i>{{ 'navbar.user.profile'|trans }}</a></li>
                             <li><hr class="dropdown-divider m-0 p-0"></li>
-                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}"><i class="fas fa-book-open me-2"></i>Lexiques</a></li>
+                            <li><a class="dropdown-item" href="{{ path('lexicon_index') }}"><i class="fas fa-book-open me-2"></i>{{ 'navbar.user.lexicons'|trans }}</a></li>
                             <li><hr class="dropdown-divider m-0 p-0"></li>
-                            <li><a class='dropdown-item' href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
+                            <li><a class='dropdown-item' href="/logout"><i class="fas fa-sign-out-alt me-2"></i>{{ 'navbar.disconnect'|trans }}</a></li>
                         </ul>
                     </li>
                         {% else %}
                         <li class="nav-item register">
-                            <a class="nav-link active" aria-current="page" href="{{ path('register') }}">Créer son premier lexique</a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('register') }}">{{ 'navbar.register'|trans }}</a>
                         </li>
                         <li class="nav-item login">
-                            <a class="nav-link active" aria-current="page" href="{{ path('login') }}">Se connecter</a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('login') }}">{{ 'navbar.connect'|trans }}</a>
                         </li>
                     {% endif %}
                 </ul>

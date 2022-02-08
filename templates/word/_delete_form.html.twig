@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('word_delete', {'id': word.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce mot?');">
+<form method="post" action="{{ path('word_delete', {'id': word.id}) }}" onsubmit="return confirm('{{ 'word.delete.confirm'|trans }}');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ word.id) }}">
     <button class="btn border-0 bg-light p-0 ms-4"><img src="{{ asset('/assets/images/icons/trash.svg') }}" style="width:20px"; /></button>
 </form>
