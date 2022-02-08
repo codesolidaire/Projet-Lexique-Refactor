@@ -5,13 +5,15 @@
 {% block body %}
     <div class="flex-fill bg-light py-5">
         <div class="container">
-            <nav aria-label="breadcrumb">
+
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ path('lexicon_index') }}">Lexiques</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ path('lexicon_show_content', {'id': lexicon.id}) }}">{{ lexicon.title }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ word.name }}</li>
                 </ol>
             </nav>
+
             <h2 class="title-page">{{ word.name }}</h2>
             <div class="form-app border dark p-5">
                 <table class="table">
