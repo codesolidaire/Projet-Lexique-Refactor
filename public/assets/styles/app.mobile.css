@@ -9,14 +9,162 @@
 @media (min-width: 768px) {
   .list-lexiques {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+    justify-items: center;
+  }
+  .list-lexiques .elem {
+    min-width: 25vw;
+  }
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home .home-text .title {
+    max-width: 50rem;
+  }
+  .home p {
+    max-width: 50rem;
+  }
+  .lexicon-mobile {
+    display: none;
+  }
+  .book {
+    transition: opacity 0.4s 0.2s;
+    margin-top: 4rem;
+  }
+  .book .title-book {
+    margin-top: 8vw;
+    text-align: center;
+    font-size: 5vw;
+    font-weight: bold;
+    color: #000000;
+  }
+  .book .title-book {
+    font-size: 7.2rem;
+    color: var(--dark);
+  }
+  .page {
+    width: 30vw;
+    height: 44vw;
+    background-color: #111111;
+    margin-bottom: 0.5em;
+    background: left top no-repeat;
+    background-size: cover;
+    overflow: scroll;
+  }
+  .page:nth-child(even) {
+    clear: both;
+  }
+  .book {
+    perspective: 250vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .book .pages {
+    width: 80vw;
+    height: 70vh;
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    /*box-shadow: 0 0 0 1px #e3dfd8;*/
+  }
+  .book .page {
+    clear: none;
+    position: absolute;
+    top: 0;
+    width: 40vw;
+    height: 70vh;
+    transform-origin: 0 0;
+    transition: transform 1.4s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    user-select: none;
+    background-color: #f0f0f0;
+  }
+  .book span:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.7s;
+    z-index: 2;
+  }
+  .book .page:nth-child(odd) {
+    pointer-events: all;
+    transform: rotateY(0deg);
+    right: 0;
+    border-radius: 0 4px 4px 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0) 10%
+    );
+  }
+  .book .page:nth-child(odd):hover {
+    transform: rotateY(-15deg);
+  }
+  .book .page:nth-child(odd):hover:before {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  .book .page:nth-child(odd):before {
+    background: rgba(0, 0, 0, 0);
+  }
+  .book .page:nth-child(even) {
+    pointer-events: none;
+    transform: rotateY(180deg);
+    transform-origin: 100% 0;
+    left: 0;
+    border-radius: 4px 0 0 4px;
+    border-color: black;
+    background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0) 10%
+    );
+  }
+  .book .page:nth-child(even):before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .book .page.grabbing {
+    transition: none;
+  }
+  .book .page.flipped:nth-child(odd) {
+    pointer-events: none;
+    transform: rotateY(-180deg);
+  }
+  .book .page.flipped:nth-child(odd):before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .book .page.flipped:nth-child(even) {
+    pointer-events: all;
+    transform: rotateY(0deg);
+  }
+  .book .page.flipped:nth-child(even):hover {
+    transform: rotateY(15deg);
+  }
+  .book .page.flipped:nth-child(even):hover:before {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  .book .page.flipped:nth-child(even):before {
+    background: rgba(0, 0, 0, 0);
+  }
+  .page:nth-child(odd) {
+    background-position: right top;
   }
 }
 
 @media (min-width: 992px) {
   .navbar {
     font-size: 1em;
+  }
+  .navbar .logo p {
+    font-size: 1.4rem;
   }
   .navbar .navbar-nav-right {
     display: flex;
@@ -94,17 +242,12 @@
     width: 40rem;
     margin-right: 1rem;
   }
-  .navbar .search input {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-  }
+
   .navbar .search input::placeholder {
     padding-left: 5px;
   }
-  .title-page {
-    font-size: 7.2rem;
+  .navbar .country {
+    justify-content: center;
   }
   .words {
     display: grid;
@@ -119,38 +262,21 @@
   }
   .home {
     display: flex;
-    margin-top: 10rem;
+    flex-direction: row;
   }
   .home img {
     flex: 1;
   }
   .home .home-text {
-    margin-left: 4rem;
     flex: 1;
   }
   .home .home-text .title {
-    font-weight: 700;
+    max-width: 50rem;
     font-size: 4.2rem;
-    line-height: 1.1em;
-    margin-bottom: 1em;
-    color: var(--dark);
   }
   .home p {
     font-size: 2.1rem;
-    line-height: 1.1em;
-    margin-bottom: 2em;
-  }
-  .home .btn-home {
-    font-size: 2.4rem;
-    border-radius: 30px;
-    border: 0.1rem solid transparent;
-    transition: all ease 1s;
-  }
-  .home .btn-home:hover {
-    transition: all ease 1s;
-    background: var(--light);
-    color: var(--dark);
-    border: 0.1rem solid var(--dark);
+    max-width: 50rem;
   }
 }
 
