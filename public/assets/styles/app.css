@@ -82,34 +82,42 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .navbar {
   background: var(--dark);
-  padding: 3em 0;
-  font-size: 1em;
-  line-height: 2.4em;
+  padding: 2em 0;
+  font-size: 1.6rem;
+  vertical-align: middle;
 }
 .navbar-nav {
   margin-top: 1.875em;
 }
 .navbar .logo {
   color: var(--light);
-  font-size: 1.5em;
   transition: all ease 0.2s;
   font-weight: bold;
   margin: 0;
-  margin-right: 2rem;
   padding: 0;
+  margin-right: 2rem;
+  font-size: 2.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4rem;
+}
+.navbar .logo p {
+  margin: 0;
+  font-size: 1.3rem;
 }
 .navbar .logo:hover {
   color: var(--light);
   transform: scale(1.1);
 }
 .navbar .nav-item {
-  display: flex;
-  align-items: center;
+  font-size: 1.3em;
 }
 .navbar .nav-link {
   color: var(--light) !important;
@@ -130,8 +138,20 @@ body {
 .navbar .dropdown {
   display: none;
 }
-.nav-item {
-  border-top: 0.01rem solid rgba(5, 19, 46, 0.3);
+.navbar .nav-item {
+  border-top: 0.01rem solid var(--light);
+  padding: 0.5rem;
+}
+.navbar .search input {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.navbar .country {
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 .navbar .navbar-toggler-icon {
   color: var(--light) !important;
@@ -168,6 +188,9 @@ body {
 .signup {
   width: 100%;
 }
+.home {
+  margin-top: 4rem;
+}
 .home .home-text {
   margin-left: 0;
   flex: 1;
@@ -175,18 +198,18 @@ body {
 }
 .home .home-text .title {
   font-weight: 700;
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   line-height: 1.1em;
-  margin-bottom: 1em;
   color: var(--dark);
+  margin-bottom: 1em;
 }
 .home p {
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   line-height: 1.1em;
   margin-bottom: 2em;
 }
 .home .btn-home {
-  font-size: 1.6rem;
+  font-size: 1em;
   border-radius: 30px;
   border: 0.1rem solid transparent;
   transition: all ease 1s;
@@ -254,4 +277,9 @@ body {
 }
 .footer .menu-footer .menu-footer-item a {
   color: var(--primary);
+}
+
+/* book */
+.book {
+  display: none;
 }
