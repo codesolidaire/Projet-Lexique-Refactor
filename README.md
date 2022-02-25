@@ -55,10 +55,12 @@ Needed for the searchbar:
    <s>
 7. Run `yarn install`
 8. Run `yarn encore dev` to build assets
+   </s>
 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
+   <s>
 2. Run `yarn run dev --watch` to launch your local server for assets
    </s>
 ### Testing
