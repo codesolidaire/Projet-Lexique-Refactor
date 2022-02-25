@@ -1,3 +1,13 @@
+# NEW CODE IN WIP
+
+We are refactoring the project to Symfony 5.4 to get the latest LTS, and we will use React for the Front.
+
+First progress are on the UI/UX, you can check the Work in Progress here:
+https://www.figma.com/file/qyn8R2l52arJ34B5Lryvkb/lexiques
+
+Any feedback is welcome.
+# OLD CODE:
+
 # Project 3 - Starter Kit - Symfony 5.*
 
 ## Presentation
@@ -7,37 +17,50 @@ This starter kit is here to easily start a repository for Wild Code School stude
 It's symfony website-skeleton project with some additional library (webpack, fixtures) and tools to validate code standards.
 
 * GrumPHP, as pre-commit hook, will run 2 tools when `git commit` is run :
-  
-    * PHP_CodeSniffer to check PSR12 
-    * PHPStan focuses on finding errors in your code (without actually running it)
-    * PHPmd will check if you follow PHP best practices
-     
+
+  * PHP_CodeSniffer to check PSR12
+  * PHPStan focuses on finding errors in your code (without actually running it)
+  * PHPmd will check if you follow PHP best practices
+
   If tests fail, the commit is canceled and a warning message is displayed to developper.
 
 * Github Action as Continuous Integration will be run when a branch with active pull request is updated on github. It will run :
 
-    * Tasks to check if vendor, .idea, env.local are not versionned,
-    * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
- 
+  * Tasks to check if vendor, .idea, env.local are not versionned,
+  * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
+
 ## Getting Started for Students
 
 ### Prerequisites
 
+Needed for the searchbar:
+1. pdo_sqlite extension active in Laragon (Right click in Laragon window, PHP => Extension for the list)
+2. sqlite extension active in Laragon
+
+# Strikeout steps are NOT necessary
+
 1. Check composer is installed
+   <s>
 2. Check yarn & node are installed
+   </s>
 
 ### Install
 
 1. Clone this project
-2. Run `composer install`
-3. Run `yarn install`
-4. Run `yarn encore dev` to build assets
+2. Copy .env file in root to make your own .env.local
+3. Run `composer install`
+4. Create the database with this command: <br> php bin\console doctrine:database:create
+5. Then the database tables with this command: <br> php bin\console doctrine:migrations:migrate
+6. Build an index with the following url once you saved some Words to have the index for the Search feature work: <br> localhost:port/generate-index
+   <s>
+7. Run `yarn install`
+8. Run `yarn encore dev` to build assets
 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
-
+   </s>
 ### Testing
 
 1. Run `php ./vendor/bin/phpcs` to launch PHP code sniffer
