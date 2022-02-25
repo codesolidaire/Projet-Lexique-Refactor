@@ -3,7 +3,7 @@
 We are refactoring the project to Symfony 5.4 to get the latest LTS, and we will use React for the Front.
 
 First progress are on the UI/UX, you can check the Work in Progress here:
-https://www.figma.com/file/qyn8R2l52arJ34B5Lryvkb/lexiques
+https://www.figma.com/proto/qyn8R2l52arJ34B5Lryvkb/lexiques?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
 
 Any feedback is welcome.
 # OLD CODE:
